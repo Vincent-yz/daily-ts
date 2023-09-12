@@ -1,12 +1,12 @@
 import React from 'react';
 import { RouteObject } from 'react-router';
-import PokeIndex from '@/views/poke-index';
+import Team from '@/views/raising/team';
 
 const routes: RouteObject[] = [
   {
-    "path": "poke-index",
-    "element": <PokeIndex />
-  }
-]
+    path: "raising/team/:id",
+    element: <Team />
+  },
+];
 
 export default routes;
