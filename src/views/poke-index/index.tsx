@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { List, InfiniteScroll } from 'antd-mobile';
+import PokeList, { IPokeListItem } from '@/components/poke-list';
+import { usePmData } from '@/api/classic';
 
 const PokeIndex = () => {
-  const [data, setData] = useState<string[]>([]);
-  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [listData, setData] = useState<IPokeListItem[]>([]);
   async function loadMore() {
-    const append = ['aaa'];
-    setData(val => [...val, ...append]);
-    setHasMore(append.length > 0);
+    setHasMore(false);
+    // setPage(p => p + 1);
+    console.log(123);
   }
+  const { data, isLoading } = usePmData(1);
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+  // setData(() => data?.data.data.items);
 
   return (
     <div>
-      <List>
-        {data.map((item, index) => (
-          <List.Item key={index}>
-            <Link to="/poke-index/111">
-              <div>image</div>
-              <div>name</div>
-              <div>type1</div>
-              <div>type2</div>
-              <div>index</div>
-            </Link>
-          </List.Item>
-        ))}
-      </List>
-      <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
+      <PokeList data={listData} loadMore={loadMore} hasMore={hasMore} />
     </div>
   );
 }

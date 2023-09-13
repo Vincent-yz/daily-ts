@@ -6,6 +6,7 @@ import HeldItem from '@/views/tools/held-item';
 import Move from '@/views/tools/move';
 import Nature from '@/views/tools/nature';
 import Type from '@/views/tools/type';
+import DataSync from '@/views/tools/data-sync';
 
 const routes: RouteObject[] = [
   {
@@ -31,6 +32,10 @@ const routes: RouteObject[] = [
   {
     path: "tools/type",
     element: <Type />
+  },
+  {
+    path: "tools/data-sync",
+    element: <DataSync />
   },
 ];
 
