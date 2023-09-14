@@ -2,7 +2,7 @@ import useSWR, { SWRResponse } from 'swr';
 import useSWRInfinite from 'swr/infinite';
 import fetcher from '@/utils/fetcher';
 import { IPokeListItem } from '@/components/poke-list';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 interface BaseStats {
   hp: number;
@@ -24,16 +24,10 @@ interface Pokemon {
   baseStats: BaseStats;
 }
 
-const getKey = (
-  pageSize?: number,
-  typeId1?: string,
-  typeId2?: string,
-  keyword?: string,
-  generation?: number
-) => {
+const getKey = () => {
   return (pageIndex: number, previousPageData: any[] ):string | null => {
     if (previousPageData && !previousPageData.length) return null // 已经到最后一页
-    return `/users?page=${pageIndex}&limit=10`;
+    return `/classic/pokemon`;
   }
 }
 
@@ -45,7 +39,22 @@ export const usePmData = (
   keyword?: string,
   generation?: number
 ) => {
-  const res = useSWRInfinite(getKey(pageSize, typeId1, typeId2, keyword, generation), fetcher);
+  const res = useSWRInfinite(getKey, (url: string) => {
+    return axios({
+      method: 'get',
+      url: url,
+      params: {
+        currentPage,
+        pageSize,
+        typeId1,
+        typeId2,
+        keyword,
+        generation,
+      }
+    }).then(res => {
+      return res.data.items;
+    });
+  });
 
   return res;
 }
