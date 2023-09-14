@@ -1,23 +1,78 @@
 import React, { useState } from 'react';
-import PokeList, { IPokeListItem } from '@/components/poke-list';
-import { usePmData } from '@/api/classic';
-import { Input, Dropdown, Selector } from 'antd-mobile'
+import PokeList from '@/components/poke-page';
+import { Input, Dropdown, Selector, Toast } from 'antd-mobile'
+import { FilterOutline } from 'antd-mobile-icons';
 
-const SearchBar = () => {
-  const [keyword, setKeyword] = useState('');
+const PokeIndex = () => {
+  const [page, setPage] = useState<number>(1);
+  const [keyword, setKeyword] = useState<string>('');
+  const [type, setType] = useState<string[]>([]);
+  const [generation, setGeneration] = useState<number>(0);
+  const [hasMore, setHasMore] = useState(false);
+
+  async function loadMore() {
+    setHasMore(false);
+    // setPage(p => p + 1);
+    console.log(123);
+  }
+
+  const setTypeLimit = (val:string[]) => {
+    if (val.length > 2) {
+      Toast.show({content: '最多选择两项'});
+      return;
+    }
+    setType(val);
+  }
 
   return (
     <div>
-      <span>
-        <Input value={keyword} onChange={val => setKeyword(val)} />
-      </span>
-      <span>
+      <div>
+        <div>
+          <span>
+            <Input value={keyword} onChange={val => setKeyword(val)} placeholder="输入关键字" />
+          </span>
+        </div>
+        <div>
         <Dropdown>
-          <Dropdown.Item key="pm_condition" title="筛选">
+          <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
             <div>
               <div>属性（最多选择两项）</div>
-
-
+              <Selector
+                columns={5}
+                options={[
+                  {
+                    label: '111',
+                    value: '111',
+                  },
+                  {
+                    label: '222',
+                    value: '222',
+                  },
+                  {
+                    label: '333',
+                    value: '333',
+                  },
+                  {
+                    label: '444',
+                    value: '444',
+                  },
+                  {
+                    label: '555',
+                    value: '555',
+                  },
+                  {
+                    label: '666',
+                    value: '666',
+                  },
+                  {
+                    label: '777',
+                    value: '777',
+                  },
+                ]}
+                multiple={true}
+                value={type}
+                onChange={setTypeLimit}
+              />
             </div>
             <div>
               <div>世代（最多选择一项）</div>
@@ -27,29 +82,9 @@ const SearchBar = () => {
             </div>
           </Dropdown.Item>
         </Dropdown>
-      </span>
-    </div>
-  );
-}
-
-const PokeIndex = () => {
-  const [page, setPage] = useState<number>(1);
-  const [hasMore, setHasMore] = useState(false);
-  const [listData, setData] = useState<IPokeListItem[]>([]);
-  async function loadMore() {
-    setHasMore(false);
-    // setPage(p => p + 1);
-    console.log(123);
-  }
-  // const { data, isLoading } = usePmData(1);
-  // if (isLoading) {
-  //   return <div>loading...</div>;
-  // }
-  // setData(() => data?.data.data.items);
-
-  return (
-    <div>
-      <PokeList data={listData} loadMore={loadMore} hasMore={hasMore} />
+        </div>
+      </div>
+      <PokeList url="/classic/pokemon" currentPage={page} />
     </div>
   );
 }

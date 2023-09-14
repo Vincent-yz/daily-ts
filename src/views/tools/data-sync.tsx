@@ -41,18 +41,18 @@ const DataSync:FC = () => {
       const { types, abilities, stats } = res;
 
       data['type_id1'] = types[0].type.name;
-      if (types.length == 2) {
+      if (types.length === 2) {
         data['type_id2'] = types[1].type.name;
       }
 
       data['ability_id1'] = abilities[0].ability.name;
-      if (abilities.length == 2) {
+      if (abilities.length === 2) {
         if (abilities[1].is_hidden) {
           data['ability_id3'] = abilities[1].ability.name;
         } else {
           data['ability_id2'] = abilities[1].ability.name;
         }
-      } else if (abilities.length == 3) {
+      } else if (abilities.length === 3) {
         data['ability_id2'] = abilities[1].ability.name;
         data['ability_id3'] = abilities[2].ability.name;
       }
@@ -84,7 +84,7 @@ const DataSync:FC = () => {
     for (let i = intStart; i <= intEnd; i++) {
       const data = await fetcher(i);
       const res = await importData(data);
-      if (res.data.code != 0) {
+      if (res.data.code !== 0) {
         console.error("保存失败");
         console.log(res);
         return;
