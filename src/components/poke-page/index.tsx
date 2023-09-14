@@ -29,8 +29,8 @@ const PokeList = (props: IPokeListProps) => {
           <div>{item.en_name}</div>
           <div>{item.en_name}</div>
           <div>
-            <PmType typeId={item.type_id1} />
-            <PmType typeId={item.type_id2} />
+            <PmType id={item.type_id1} />
+            <PmType id={item.type_id2} />
           </div>
           <div>No.{item.national_num}</div>
         </List.Item>
