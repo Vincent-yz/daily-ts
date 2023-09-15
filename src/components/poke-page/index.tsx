@@ -1,8 +1,8 @@
 import React from 'react';
 import { List } from 'antd-mobile';
 import { usePmData } from '@/api/classic';
-import useSWR from 'swr';
 import PmType from '../pm-type';
+import styles from './index.module.css';
 
 interface IQueryParam {
 
@@ -14,8 +14,8 @@ interface IPokeListProps {
 }
 
 const PokeList = (props: IPokeListProps) => {
-  const { currentPage, url, queryParam = {} } = props;
-  const { data, error, isLoading }  = useSWR([url, currentPage, queryParam], usePmData);
+  const { currentPage, queryParam = {} } = props;
+  const { data, error, isLoading } = usePmData({currentPage});
 
   if (isLoading) return <div>loading...</div>;
   if (error) return <div>error...</div>;
@@ -23,16 +23,20 @@ const PokeList = (props: IPokeListProps) => {
 
   return (
     <List>
-      {data.items.map((item, index) => (
-        <List.Item key={index} className="item-pm">
-          <div className="logo">logo</div>
-          <div>{item.en_name}</div>
-          <div>{item.en_name}</div>
-          <div>
-            <PmType id={item.type_id1} />
-            <PmType id={item.type_id2} />
+      {data.map((item, index) => (
+        <List.Item key={index}>
+          <div className={styles.wrapper}>
+            <div className={styles.prefix}>logo</div>
+            <div className={styles.content}>
+              <div className={styles.chName}>{item.ch_name}</div>
+              <div className={styles.enName}>{item.en_name}</div>
+              <div className={styles.pmType}>
+                <PmType id={item.type_id1} />
+                <PmType id={item.type_id2} />
+              </div>
+            </div>
+            <div className={styles.suffix}>No.{item.national_num.toString().padStart(3,'0')}</div>
           </div>
-          <div>No.{item.national_num}</div>
         </List.Item>
       ))}
     </List>

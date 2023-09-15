@@ -1,14 +1,5 @@
 import request from '@/utils/request';
-import useSWR, { StrictTupleKey } from 'swr';
-
-// interface BaseStats {
-//   hp: number;
-//   attack: number;
-//   defense: number;
-//   sp_attack: number;
-//   sp_defense: number;
-//   speed: number;
-// }
+import useSWR, { Key } from 'swr';
 
 interface Pokemon {
   national_num: number;
@@ -18,44 +9,33 @@ interface Pokemon {
   type_id2: string;
 }
 
-interface ServerResponse<T> {
-  currentPage: number;
-  pageSize: number;
-  total: number;
-  items: T[];
-}
-
 interface IPmType {
   en_name: string;
   ch_name: string;
   color: string;
 }
 
-export function usePmData(args:(string | number | any)[]): Promise<ServerResponse<Pokemon>> {
-  const [url, currentPage, queryParam] = args;
-  return request({
-    method: 'get',
-    url: url,
-    params: {
-      currentPage,
-      ...queryParam,
-    }
+interface IUsePmDataParam {
+  currentPage: number;
+  typeId1?: string;
+  typeId2?: string;
+  keyword?: string;
+  generation?: string;
+}
+
+export const usePmData = (param: IUsePmDataParam) => {
+  const { currentPage, typeId1 = '', typeId2 = '', keyword = '', generation = '0' } = param;
+  const key: Key = `/classic/pokemon?currentPage=${currentPage}&typeId1=${typeId1}&typeId2=${typeId2}&keyword=${keyword}&generation=${generation}`;
+
+  return useSWR<Pokemon[]>(key, async (url: string) => {
+    const res = await request.get<Pokemon[]>(url);
+    return res.data.data.items;
   });
 }
 
-interface IUsePmDataParam {
-  url: string;
-  currentPage: number;
-  queryParam?: object;
-}
-
-export const usePmDatas = (param: IUsePmDataParam) => {
-  const { url, currentPage, queryParam = {} } = param;
-  // return useSWR<Pokemon[]>([url, currentPage, queryParam], (..._args: any[]) => {
-  //   // const [ url, currentPage, queryParam = {} ] = args;
-  // });
-}
-
 export const usePmType = () => {
-  return useSWR<IPmType[]>('/classic/type', request);
+  return useSWR<IPmType[]>('/classic/type', async (url: string) => {
+    const res = await request.get<IPmType[]>(url);
+    return res.data.data;
+  });
 }

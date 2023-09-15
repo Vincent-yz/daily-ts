@@ -8,17 +8,13 @@ interface IPmTypeProps {
 
 const PmType = (props: IPmTypeProps) => {
   const { id } = props;
-  const { data, isLoading, error } = usePmType();
-
-  if (isLoading) return <div>loading...</div>;
-  if (error) return <div>error...</div>;
-
+  const { data } = usePmType();
   const target = data?.find(item => item.en_name === id);
 
   if (!id || !target) return null;
 
   return (
-    <Tag round color={target.color} style={{width: '50px', textAlign: 'center'}}>
+    <Tag round color={target.color} style={{width: '50px', textAlign: 'center', marginRight: '5px'}}>
       {target.ch_name}
     </Tag>
   )
