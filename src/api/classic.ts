@@ -13,6 +13,8 @@ interface IPmType {
   en_name: string;
   ch_name: string;
   color: string;
+  label?: string;
+  value?: string;
 }
 
 interface IUsePmDataParam {

@@ -15,7 +15,7 @@ const PmType = (props: IPmTypeProps) => {
 
   return (
     <Tag round color={target.color} style={{width: '50px', textAlign: 'center', marginRight: '5px'}}>
-      {target.ch_name}
+      {target.en_name}
     </Tag>
   )
 }

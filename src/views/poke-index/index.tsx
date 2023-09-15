@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
 import PokeList from '@/components/poke-page';
-import { Input, Dropdown, Selector, Toast } from 'antd-mobile'
+import { Input, Dropdown, Selector, SelectorOption, Toast, SearchBar } from 'antd-mobile'
 import { FilterOutline } from 'antd-mobile-icons';
+import { usePmType } from '@/api/classic';
+import styles from './index.module.css';
+
+const generationSelectorOptions: SelectorOption<string>[] = Array(5).fill(0).map((_, index) => {
+  return {
+    label: `第${index + 1}世代`,
+    value: (index + 1).toString(),
+  }
+});
 
 const PokeIndex = () => {
   const [page, setPage] = useState<number>(1);
   const [keyword, setKeyword] = useState<string>('');
   const [type, setType] = useState<string[]>([]);
-  const [generation, setGeneration] = useState<number>(0);
+  const [generation, setGeneration] = useState<string>('0');
   const [hasMore, setHasMore] = useState(false);
+
+  const { data: pmTypeList = [] } = usePmType();
+  const pmTypeSelectorOptions: SelectorOption<string>[] = pmTypeList.map(item => {
+    return {
+      label: item.ch_name,
+      value: item.en_name,
+    }
+  });
 
   async function loadMore() {
     setHasMore(false);
     // setPage(p => p + 1);
     console.log(123);
+  }
+
+  const clear = () => {
+    setType([]);
+    setGeneration('0');
   }
 
   const setTypeLimit = (val:string[]) => {
@@ -25,66 +47,35 @@ const PokeIndex = () => {
   }
 
   return (
-    <div>
-      <div>
-        <div>
-          <span>
-            <Input value={keyword} onChange={val => setKeyword(val)} placeholder="输入关键字" />
-          </span>
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
+        <div className={styles.search}>
+          <SearchBar />
         </div>
-        <div>
-        <Dropdown>
+        <Dropdown className={styles.filter}>
           <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
-            <div>
-              <div>属性（最多选择两项）</div>
-              <Selector
-                columns={5}
-                options={[
-                  {
-                    label: '111',
-                    value: '111',
-                  },
-                  {
-                    label: '222',
-                    value: '222',
-                  },
-                  {
-                    label: '333',
-                    value: '333',
-                  },
-                  {
-                    label: '444',
-                    value: '444',
-                  },
-                  {
-                    label: '555',
-                    value: '555',
-                  },
-                  {
-                    label: '666',
-                    value: '666',
-                  },
-                  {
-                    label: '777',
-                    value: '777',
-                  },
-                ]}
-                multiple={true}
-                value={type}
-                onChange={setTypeLimit}
-              />
-            </div>
-            <div>
-              <div>世代（最多选择一项）</div>
-              <div>
-
-              </div>
-            </div>
+            <div>属性（最多选择两项）</div>
+            <Selector
+              columns={5}
+              options={pmTypeSelectorOptions}
+              multiple={true}
+              value={type}
+              onChange={setTypeLimit}
+              style={{'--padding': '8px'}}
+            />
+            <div>世代（最多选择一项）</div>
+            <Selector
+              columns={4}
+              options={generationSelectorOptions}
+              value={[generation]}
+              onChange={(val) => setGeneration(val[0])}
+            />
           </Dropdown.Item>
         </Dropdown>
-        </div>
       </div>
-      <PokeList url="/classic/pokemon" currentPage={page} />
+      <div className={styles.content}>
+        <PokeList currentPage={page} />
+      </div>
     </div>
   );
 }

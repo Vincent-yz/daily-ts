@@ -1,6 +1,6 @@
 import React from 'react';
 import { List } from 'antd-mobile';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 interface ITool {
   title: string;
@@ -39,12 +39,13 @@ const ToolItem:ITool[] = [
 ]
 
 const Tools = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <List>
         {ToolItem.map(item => (
-          <List.Item key={item.key}>
-            <Link to={item.key}>{item.title}</Link>
+          <List.Item key={item.key} arrow>
+            <div onClick={() => navigate(item.key)}>{item.title}</div>
           </List.Item>
         ))}
       </List>

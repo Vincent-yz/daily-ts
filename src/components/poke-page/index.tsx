@@ -8,7 +8,6 @@ interface IQueryParam {
 
 }
 interface IPokeListProps {
-  url:string;
   currentPage:number;
   queryParam?:IQueryParam;
 }
@@ -28,7 +27,7 @@ const PokeList = (props: IPokeListProps) => {
           <div className={styles.wrapper}>
             <div className={styles.prefix}>logo</div>
             <div className={styles.content}>
-              <div className={styles.chName}>{item.ch_name}</div>
+              <div className={styles.chName}>{item.en_name}</div>
               <div className={styles.enName}>{item.en_name}</div>
               <div className={styles.pmType}>
                 <PmType id={item.type_id1} />
