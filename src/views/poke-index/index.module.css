@@ -13,10 +13,13 @@
 }
 .search {
   flex-grow: 1;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 .filter {
   width: 64px;
+}
+.dropdown {
+  padding: 0 8px;
 }
 .content {
   position: absolute;

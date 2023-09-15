@@ -1,24 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { List } from 'antd-mobile';
-import { usePmData } from '@/api/classic';
+import { Pokemon } from '@/api/classic';
 import PmType from '../pm-type';
 import styles from './index.module.css';
 
-interface IQueryParam {
-
-}
-interface IPokeListProps {
-  currentPage:number;
-  queryParam?:IQueryParam;
+interface IPokePageProps {
+  data: Pokemon[];
 }
 
-const PokeList = (props: IPokeListProps) => {
-  const { currentPage, queryParam = {} } = props;
-  const { data, error, isLoading } = usePmData({currentPage});
+const PokePage:FC<IPokePageProps> = (props) => {
+  const { data } = props;
 
-  if (isLoading) return <div>loading...</div>;
-  if (error) return <div>error...</div>;
-  if (!data) return <div>no data...</div>;
+  if (!data) return null;
 
   return (
     <List>
@@ -42,4 +35,4 @@ const PokeList = (props: IPokeListProps) => {
   )
 }
 
-export default PokeList;
+export default PokePage;

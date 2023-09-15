@@ -1,7 +1,8 @@
 import request from '@/utils/request';
-import useSWR, { Key } from 'swr';
+import useSWR, { Key, Fetcher } from 'swr';
+import useSWRInfinite, { SWRInfiniteKeyLoader, SWRInfiniteConfiguration } from 'swr/infinite';
 
-interface Pokemon {
+export interface Pokemon {
   national_num: number;
   en_name: string;
   ch_name: string;
@@ -18,26 +19,35 @@ interface IPmType {
 }
 
 interface IUsePmDataParam {
-  currentPage: number;
+  keyword?: string;
   typeId1?: string;
   typeId2?: string;
-  keyword?: string;
   generation?: string;
 }
 
 export const usePmData = (param: IUsePmDataParam) => {
-  const { currentPage, typeId1 = '', typeId2 = '', keyword = '', generation = '0' } = param;
-  const key: Key = `/classic/pokemon?currentPage=${currentPage}&typeId1=${typeId1}&typeId2=${typeId2}&keyword=${keyword}&generation=${generation}`;
-
-  return useSWR<Pokemon[]>(key, async (url: string) => {
-    const res = await request.get<Pokemon[]>(url);
+  const { keyword = '', typeId1 = '', typeId2 = '', generation = '0' } = param;
+  const key: SWRInfiniteKeyLoader = (index, previousPageData) => {
+    if (previousPageData && !previousPageData.length) return null;
+    return `/classic/pokemon?currentPage=${index + 1}&keyword=${keyword}&typeId1=${typeId1}&typeId2=${typeId2}&generation=${generation}`;
+  }
+  const fetcher: Fetcher<Pokemon[]> = async (url: string) => {
+    const res = await request.get(url);
     return res.data.data.items;
-  });
+  }
+  const config: SWRInfiniteConfiguration = {
+    revalidateFirstPage : false,
+  }
+
+  return useSWRInfinite<Pokemon[]>(key, fetcher, config);
 }
 
 export const usePmType = () => {
-  return useSWR<IPmType[]>('/classic/type', async (url: string) => {
-    const res = await request.get<IPmType[]>(url);
+  const key: Key = '/classic/type';
+  const fetcher: Fetcher<IPmType[]> = async (url: string) => {
+    const res = await request.get(url);
     return res.data.data;
-  });
+  }
+
+  return useSWR<IPmType[]>(key, fetcher);
 }

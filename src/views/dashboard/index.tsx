@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 import { AntOutline, StarOutline, CalculatorOutline, UnorderedListOutline, FlagOutline } from 'antd-mobile-icons';
 import styles from './index.module.css';
@@ -19,8 +19,9 @@ const TabBarItem: ITabBarItem[] = [
 ];
 
 const Classic = () => {
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <div className={styles.container}>
@@ -28,7 +29,7 @@ const Classic = () => {
         <Outlet />
       </div>
       <div className={styles.tabBar}>
-        <TabBar onChange={(key) => navigate(key)}>
+        <TabBar activeKey={pathname} onChange={(key) => navigate(key)}>
           {TabBarItem.map(item => (
             <TabBar.Item key={item.key} title={item.title} icon={item.icon} />
           ))}
