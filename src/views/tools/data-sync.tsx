@@ -15,7 +15,7 @@ const DataSync:FC = () => {
 
       const data = {
         'national_num': res.id,
-        'name': res.name,
+        'en_name': res.name,
         'type_id1': '',
         'type_id2': '',
         'generation': 0,

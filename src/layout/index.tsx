@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Outlet, useNavigate } from 'react-router';
 import { NavBar } from 'antd-mobile';
 import styles from './index.module.css';
 
-const Layout = () => {
+const Layout: FC = () => {
   const navigate = useNavigate();
 
   const back = () => {

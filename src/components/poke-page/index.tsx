@@ -3,6 +3,7 @@ import { List } from 'antd-mobile';
 import { Pokemon } from '@/api/classic';
 import PmType from '../pm-type';
 import styles from './index.module.css';
+import { useNavigate } from 'react-router';
 
 interface IPokePageProps {
   data: Pokemon[];
@@ -10,13 +11,14 @@ interface IPokePageProps {
 
 const PokePage:FC<IPokePageProps> = (props) => {
   const { data } = props;
+  const navigate = useNavigate();
 
   if (!data) return null;
 
   return (
     <List>
       {data.map((item, index) => (
-        <List.Item key={index}>
+        <List.Item key={index} onClick={() => navigate(`/poke-index/${item.national_num}`)} arrow={false}>
           <div className={styles.wrapper}>
             <div className={styles.prefix}>logo</div>
             <div className={styles.content}>

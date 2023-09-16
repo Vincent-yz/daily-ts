@@ -11,8 +11,9 @@ interface IServicePagination<T> {
 interface Result<T> {
   code: number;
   message: string;
-  data: string | number | boolean | object | T[] | IServicePagination<T> | any;
+  data: string | number | boolean | object | T | T[] | IServicePagination<T> | any;
 }
+
 class Request {
   instance: AxiosInstance;
 
@@ -100,4 +101,6 @@ class Request {
   }
 }
 
-export default new Request({});
+const myRequest = new Request({});
+
+export default myRequest;

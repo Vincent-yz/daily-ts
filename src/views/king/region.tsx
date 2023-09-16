@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-const Trainer: FC = () => {
+const Region: FC = () => {
   return (
     <div>
-      trainer
+      Region
     </div>
   )
 }
 
-export default Trainer;
+export default Region;

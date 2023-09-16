@@ -18,7 +18,7 @@ const TabBarItem: ITabBarItem[] = [
   { key: "/dashboard/tools", title: "工具", icon: UnorderedListOutline },
 ];
 
-const Classic = () => {
+const Dashboard: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
@@ -39,4 +39,4 @@ const Classic = () => {
   )
 }
 
-export default Classic;
+export default Dashboard;

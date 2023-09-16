@@ -1,17 +1,17 @@
 import React from 'react';
 import { RouteObject } from 'react-router';
-import Area from '@/views/king/area';
+import Region from '@/views/king/region';
 import Trainer from '@/views/king/trainer';
 
 const routes: RouteObject[] = [
   {
-    path: "king",
-    element: <Area />
+    path: "king/:regionId",
+    element: <Region />
   },
   {
-    path: "king/:areaId/trainer",
+    path: "king/:regionId/trainer/:trainerId",
     element: <Trainer />
-  }
+  },
 ]
 
 export default routes;

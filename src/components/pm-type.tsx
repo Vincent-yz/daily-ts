@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Tag } from 'antd-mobile';
 import { usePmType } from '@/api/classic';
 
@@ -6,7 +6,7 @@ interface IPmTypeProps {
   id: string;
 }
 
-const PmType = (props: IPmTypeProps) => {
+const PmType:FC<IPmTypeProps> = (props) => {
   const { id } = props;
   const { data } = usePmType();
   const target = data?.find(item => item.en_name === id);
