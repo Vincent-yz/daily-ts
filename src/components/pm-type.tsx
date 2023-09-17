@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Tag } from 'antd-mobile';
 import { usePmType } from '@/api/classic';
+import transfer from '@/utils/i18n';
 
 interface IPmTypeProps {
   id: string;
@@ -15,7 +16,7 @@ const PmType:FC<IPmTypeProps> = (props) => {
 
   return (
     <Tag round color={target.color} style={{width: '50px', textAlign: 'center', marginRight: '5px'}}>
-      {target.en_name}
+      {transfer(target)}
     </Tag>
   )
 }

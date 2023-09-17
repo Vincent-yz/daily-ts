@@ -4,13 +4,8 @@ import { Dropdown, Selector, SelectorOption, Toast, SearchBar, InfiniteScroll, S
 import { FilterOutline } from 'antd-mobile-icons';
 import { usePmList, usePmType } from '@/api/classic';
 import styles from './index.module.css';
-
-const generationSelectorOptions: SelectorOption<string>[] = Array(5).fill(0).map((_, index) => {
-  return {
-    label: `第${index + 1}世代`,
-    value: (index + 1).toString(),
-  }
-});
+import generationSelectorOptions from './gen-options';
+import transfer from '@/utils/i18n';
 
 const PokeIndex: FC = () => {
   // 初始化状态
@@ -23,7 +18,7 @@ const PokeIndex: FC = () => {
   const { data: pmTypeList = [] } = usePmType();
   const pmTypeSelectorOptions: SelectorOption<string>[] = pmTypeList.map(item => {
     return {
-      label: item.ch_name,
+      label: transfer(item),
       value: item.en_name,
     }
   });

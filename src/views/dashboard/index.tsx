@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 import { AntOutline, StarOutline, CalculatorOutline, UnorderedListOutline, FlagOutline } from 'antd-mobile-icons';
 import styles from './index.module.css';
+import transfer from '@/utils/i18n';
 
 interface ITabBarItem {
   key: string;
@@ -11,11 +12,11 @@ interface ITabBarItem {
 }
 
 const TabBarItem: ITabBarItem[] = [
-  { key: "/dashboard/poke-index", title: "全国图鉴", icon: AntOutline },
-  { key: "/dashboard/king", title: "天王", icon: StarOutline },
-  { key: "/dashboard/raising", title: "培育", icon: FlagOutline },
-  { key: "/dashboard/battle", title: "模拟", icon: CalculatorOutline },
-  { key: "/dashboard/tools", title: "工具", icon: UnorderedListOutline },
+  { key: "/dashboard/poke-index", title: transfer("poke-index"), icon: AntOutline },
+  { key: "/dashboard/king", title: transfer("king"), icon: StarOutline },
+  { key: "/dashboard/raising", title: transfer("raising"), icon: FlagOutline },
+  { key: "/dashboard/battle", title: transfer("battle"), icon: CalculatorOutline },
+  { key: "/dashboard/tools", title: transfer("tools"), icon: UnorderedListOutline },
 ];
 
 const Dashboard: FC = () => {

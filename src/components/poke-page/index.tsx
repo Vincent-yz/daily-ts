@@ -4,6 +4,7 @@ import { Pokemon } from '@/api/classic';
 import PmType from '../pm-type';
 import styles from './index.module.css';
 import { useNavigate } from 'react-router';
+import transfer from '@/utils/i18n';
 
 interface IPokePageProps {
   data: Pokemon[];
