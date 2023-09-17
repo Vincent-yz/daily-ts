@@ -43,11 +43,11 @@ export const usePmList: IUsePmList = (param) => {
 }
 
 export const usePmDetail: IUsePmDetail = (nationalNum) => {
-  const key: Key = `/classic/pokemon/${nationalNum}`;
+  const key: Key = nationalNum ? `/classic/pokemon/${nationalNum}` : null;
   const fetcher: Fetcher<Pokemon> = async (url: string) => {
     const res = await request.get(url);
     return res.data.data;
   }
 
-  return useSWR(nationalNum ? key : null, fetcher);
+  return useSWR(key, fetcher);
 }
