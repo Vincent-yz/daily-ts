@@ -1,3 +1,5 @@
+import _len from './locate/locate.en';
+import _lch from './locate/locate.ch';
 enum LOCATE {
 	en = 'en',
 	ch = 'ch',
@@ -15,20 +17,8 @@ type ITransfer = {
 type IDictionary = Record<LOCATE, Record<string, string>>;
 
 const dictionary: IDictionary = {
-	[LOCATE.en]: {
-		'poke-index': 'poke-index',
-		'king': 'king',
-		'raising': 'raising',
-		'battle': 'battle',
-		'tools': 'tools',
-	},
-	[LOCATE.ch]: {
-		'poke-index': '全国图鉴',
-		'king': '天王',
-		'raising': '培育',
-		'battle': '模拟',
-		'tools': '工具',
-	},
+	[LOCATE.en]: _len,
+	[LOCATE.ch]: _lch,
 }
 
 const transfer: ITransfer = (param) => {

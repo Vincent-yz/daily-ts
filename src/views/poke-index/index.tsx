@@ -71,7 +71,7 @@ const PokeIndex: FC = () => {
         <Dropdown ref={ref} className={styles.filter}>
           <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
             <div className={styles.dropdown}>
-              <div>属性（最多选择两项）</div>
+              <div>{transfer('Type')}（最多选择两项）</div>
               <Selector
                 columns={5}
                 options={pmTypeSelectorOptions}
@@ -80,7 +80,7 @@ const PokeIndex: FC = () => {
                 onChange={setTypeLimit}
                 style={{'--padding': '8px'}}
               />
-              <div>Gen（最多选择一项）</div>
+              <div>{transfer('Gen')}（最多选择一项）</div>
               <Selector
                 columns={4}
                 options={generationSelectorOptions}

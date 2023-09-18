@@ -1,10 +1,13 @@
 import request from '@/utils/request';
 import useSWR, { Key, Fetcher, SWRResponse } from 'swr';
 
-type IPmType = {
+export type IPmType = {
   en_name: string;
   ch_name: string;
   color: string;
+  weak_to: string[];
+  resistant_to: string[];
+  immune_to: string[];
   label?: string;
   value?: string;
 }

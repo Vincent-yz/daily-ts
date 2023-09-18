@@ -2,12 +2,32 @@ import request from '@/utils/request';
 import useSWR, { Key, Fetcher, SWRResponse } from 'swr';
 import useSWRInfinite, { SWRInfiniteKeyLoader, SWRInfiniteConfiguration, SWRInfiniteResponse } from 'swr/infinite';
 
+export type IBaseStats = {
+  hp: number;
+  attack: number;
+  defense: number;
+  sp_attack: number;
+  sp_defense: number;
+  speed: number;
+}
+
 export type Pokemon = {
   national_num: number;
   en_name: string;
   ch_name: string;
   type_id1: string;
   type_id2: string;
+  generation: number;
+  height: number;
+  weight: number;
+  gender: string;
+  ability_id1: string;
+  ability_id2: string;
+  ability_id3: string;
+  egg_group_id1: string;
+  egg_group_id2: string;
+  catch_rate: number;
+  base_stats: IBaseStats;
 }
 
 type IUsePmListParam = {

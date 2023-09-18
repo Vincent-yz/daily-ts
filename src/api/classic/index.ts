@@ -1,5 +1,5 @@
-import { Pokemon, usePmList, usePmDetail } from './pm';
-import { usePmType } from './pm-type';
+import { IBaseStats, Pokemon, usePmList, usePmDetail } from './pm';
+import { IPmType, usePmType } from './pm-type';
 
 export { usePmList, usePmDetail, usePmType };
-export type { Pokemon };
+export type { IBaseStats, Pokemon, IPmType };
