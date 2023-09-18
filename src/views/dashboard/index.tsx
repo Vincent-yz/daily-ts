@@ -5,7 +5,7 @@ import { AntOutline, StarOutline, CalculatorOutline, UnorderedListOutline, FlagO
 import styles from './index.module.css';
 import transfer from '@/utils/i18n';
 
-interface ITabBarItem {
+type ITabBarItem = {
   key: string;
   title: string;
   icon: FC;

@@ -9,6 +9,7 @@ type ITransfer = {
 	(param: string): string;
 	(param: Record<string, string>): string;
 	(param: Record<any, string>): string;
+	(param: any): string;
 }
 
 type IDictionary = Record<LOCATE, Record<string, string>>;

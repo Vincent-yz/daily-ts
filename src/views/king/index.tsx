@@ -1,11 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useRegion } from '@/api/king';
 import transfer from '@/utils/i18n';
 import { useNavigate } from 'react-router';
+import useTitleContext from '@/layout/title-context';
 
 const King: FC = () => {
   const navigate = useNavigate();
   const { data = [] } = useRegion();
+  const { setPageTitle } = useTitleContext();
+  useEffect(() => setPageTitle('king'), [setPageTitle]);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import PokePage from '@/components/poke-page';
 import { Dropdown, Selector, SelectorOption, Toast, SearchBar, InfiniteScroll, Space, Button, DropdownRef } from 'antd-mobile'
 import { FilterOutline } from 'antd-mobile-icons';
@@ -6,6 +6,7 @@ import { usePmList, usePmType } from '@/api/classic';
 import styles from './index.module.css';
 import generationSelectorOptions from './gen-options';
 import transfer from '@/utils/i18n';
+import useTitleContext from '@/layout/title-context';
 
 const PokeIndex: FC = () => {
   // 初始化状态
@@ -14,6 +15,8 @@ const PokeIndex: FC = () => {
   const [generation, setGeneration] = useState<string>('0');
   const [hasMore, setHasMore] = useState<boolean>(true);
   const ref = useRef<DropdownRef>(null);
+  const { setPageTitle } = useTitleContext();
+  useEffect(() => setPageTitle('poke-index'), [setPageTitle]);
   // 初始化数据
   const { data: pmTypeList = [] } = usePmType();
   const pmTypeSelectorOptions: SelectorOption<string>[] = pmTypeList.map(item => {

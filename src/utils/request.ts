@@ -1,14 +1,14 @@
 import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { Toast } from 'antd-mobile';
 
-interface IServicePagination<T> {
+type IServicePagination<T> = {
   currentPage: number;
   pageSize: number;
   total: number;
   item: T[];
 }
 
-interface Result<T> {
+type Result<T> = {
   code: number;
   message: string;
   data: string | number | boolean | object | T | T[] | IServicePagination<T> | any;

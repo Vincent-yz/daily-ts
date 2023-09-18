@@ -3,7 +3,7 @@ import { Tag } from 'antd-mobile';
 import { usePmType } from '@/api/classic';
 import transfer from '@/utils/i18n';
 
-interface IPmTypeProps {
+type IPmTypeProps = {
   id: string;
 }
 
