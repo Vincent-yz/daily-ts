@@ -6,7 +6,7 @@ type IFilterProps = {
 }
 
 const Filter: FC<IFilterProps> = (props) => {
-	const { trainerId } = props;
+	// const { trainerId } = props;
 
 	return (
 		<div>filter</div>

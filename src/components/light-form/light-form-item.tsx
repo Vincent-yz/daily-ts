@@ -9,7 +9,7 @@ type ILightFormItemProps = {
 const LightFormItem: FC<ILightFormItemProps> = (props) => {
   const { label, children } = props;
 
-  if (!children || Array.isArray(children) && children.length < 1) return null;
+  if (!children || (Array.isArray(children) && children.length < 1)) return null;
 
   return (
     <div className={styles.item}>

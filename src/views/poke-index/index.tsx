@@ -14,46 +14,38 @@ const PokeIndex: FC = () => {
   const [type, setType] = useState<string[]>([]);
   const [generation, setGeneration] = useState<string>('0');
   const [hasMore, setHasMore] = useState<boolean>(true);
+  const [pmTypeOptions, setTypeOption]  = useState<SelectorOption<string>[]>([]);
   const ref = useRef<DropdownRef>(null);
   const { setPageTitle } = useTitleContext();
-  useEffect(() => setPageTitle('poke-index'), [setPageTitle]);
-  // 初始化数据
   const { data: pmTypeList = [] } = usePmType();
-  const pmTypeSelectorOptions: SelectorOption<string>[] = pmTypeList.map(item => {
-    return {
-      label: transfer(item),
-      value: item.en_name,
-    }
-  });
-
-  const pmCondition = {
-    keyword: keyword,
-    typeId1: type[0],
-    typeId2: type[1],
-    generation: generation,
-  }
-  const { data: pmList = [], size, setSize, isValidating, isLoading } = usePmList(pmCondition);
+  const { data: pmList = [], size, setSize, isValidating, isLoading } = usePmList(keyword, type[0], type[1], generation);
+  // 转化状态
+  useEffect(() => setPageTitle('poke-index'), [setPageTitle]);
+  useEffect(() => setTypeOption(
+    pmTypeList.map(item => {
+      return {
+        label: transfer(item),
+        value: item.en_name,
+      }
+    })
+  ), [pmTypeList]);
   // 定义回调方法
   async function loadMore() {
-    if (!isValidating && !isLoading) {
-      setSize(p => {
-        console.log(p);
-        return p + 1;
-      });
+    const lastPage = pmList[pmList.length - 1];
+    if (!isValidating && !isLoading && size <= pmList.length) {
+      setSize(p => (p + 1));
     }
-    if (pmList[size - 1]) {
-      setHasMore(pmList[size - 1].length > 0);
+    if (lastPage) {
+      setHasMore(lastPage.items.length >= lastPage.pageSize);
     }
   }
 
-  const reset = () => {
-    setKeyword('');
-    setType([]);
-    setGeneration('0');
-    setHasMore(true);
+  // todo ...
+  const setMixKeyword = (val: string) => {
+    setKeyword(val);
   }
 
-  const setTypeLimit = (val:string[]) => {
+  const setMixType = (val:string[]) => {
     if (val.length > 2) {
       Toast.show({content: '最多选择两项'})
     } else {
@@ -62,11 +54,23 @@ const PokeIndex: FC = () => {
     }
   }
 
+  const setMixGen = (val:string[]) => {
+    setHasMore(true);
+    setGeneration(val[0]);
+  }
+
+  const reset = () => {
+    setHasMore(true);
+    setKeyword('');
+    setType([]);
+    setGeneration('0');
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.search}>
-          <SearchBar value={keyword} onChange={(val) => {setKeyword(val);}} />
+          <SearchBar value={keyword} onChange={setMixKeyword} />
         </div>
         <Dropdown ref={ref} className={styles.filter}>
           <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
@@ -74,10 +78,10 @@ const PokeIndex: FC = () => {
               <div>{transfer('Type')}（最多选择两项）</div>
               <Selector
                 columns={5}
-                options={pmTypeSelectorOptions}
+                options={pmTypeOptions}
                 multiple={true}
                 value={type}
-                onChange={setTypeLimit}
+                onChange={setMixType}
                 style={{'--padding': '8px'}}
               />
               <div>{transfer('Gen')}（最多选择一项）</div>
@@ -85,7 +89,7 @@ const PokeIndex: FC = () => {
                 columns={4}
                 options={generationSelectorOptions}
                 value={[generation]}
-                onChange={(val) => {setGeneration(val[0]);}}
+                onChange={setMixGen}
                 style={{'--padding': '8px'}}
               />
               <Space>
@@ -97,8 +101,8 @@ const PokeIndex: FC = () => {
         </Dropdown>
       </div>
       <div className={styles.content}>
-        {pmList.map((item, index) => {
-          return <PokePage key={index} data={item} />
+        {pmList.map((page, index) => {
+          return <PokePage key={index} data={page.items} />
         })}
         <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
       </div>

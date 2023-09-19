@@ -1,17 +1,17 @@
 import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { Toast } from 'antd-mobile';
 
-type IServicePagination<T> = {
+export type IPagination<T> = {
   currentPage: number;
   pageSize: number;
   total: number;
-  item: T[];
+  items: T[];
 }
 
-type Result<T> = {
+export type IResult<T> = {
   code: number;
   message: string;
-  data: string | number | boolean | object | T | T[] | IServicePagination<T> | any;
+  data: T;
 }
 
 class Request {
@@ -73,7 +73,14 @@ class Request {
   public get<T = any>(
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<Result<T>>> {
+  ): Promise<AxiosResponse<IResult<T>>> {
+    return this.instance.get(url, config);
+  }
+
+  public list<T = any>(
+    url: string,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<IResult<IPagination<T>>>> {
     return this.instance.get(url, config);
   }
 
@@ -81,7 +88,7 @@ class Request {
     url: string,
     data?: any,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<Result<T>>> {
+  ): Promise<AxiosResponse<IResult<T>>> {
     return this.instance.post(url, data, config);
   }
 
@@ -89,14 +96,14 @@ class Request {
     url: string,
     data?: any,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<Result<T>>> {
+  ): Promise<AxiosResponse<IResult<T>>> {
     return this.instance.put(url, data, config);
   }
 
   public delete<T = any>(
     url: string,
     config?: AxiosRequestConfig
-  ): Promise<AxiosResponse<Result<T>>> {
+  ): Promise<AxiosResponse<IResult<T>>> {
     return this.instance.delete(url, config);
   }
 }

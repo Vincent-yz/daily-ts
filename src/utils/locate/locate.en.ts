@@ -1,4 +1,4 @@
-export default {
+const dic: Record<string, string> = {
   'poke-index': 'poke-index',
   'Type': 'Type',
   'king': 'king',
@@ -14,3 +14,5 @@ export default {
   'Gen4': 'Gen4',
   'Gen5': 'Gen5',
 }
+
+export default dic;

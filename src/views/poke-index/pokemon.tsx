@@ -14,7 +14,7 @@ const PokeIndex: FC = () => {
   const navigate = useNavigate();
   const { data } = usePmDetail(nationalNum);
   const { setPageTitle } = useTitleContext();
-  useEffect(() => setPageTitle(data), [data]);
+  useEffect(() => setPageTitle(data), [data, setPageTitle]);
 
   if (!data) return null;
 

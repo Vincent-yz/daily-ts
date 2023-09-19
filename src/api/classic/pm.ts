@@ -1,4 +1,4 @@
-import request from '@/utils/request';
+import request, { IPagination } from '@/utils/request';
 import useSWR, { Key, Fetcher, SWRResponse } from 'swr';
 import useSWRInfinite, { SWRInfiniteKeyLoader, SWRInfiniteConfiguration, SWRInfiniteResponse } from 'swr/infinite';
 
@@ -30,30 +30,22 @@ export type Pokemon = {
   base_stats: IBaseStats;
 }
 
-type IUsePmListParam = {
-  keyword?: string;
-  typeId1?: string;
-  typeId2?: string;
-  generation?: string;
-}
-
 type IUsePmList = {
-  (param: IUsePmListParam): SWRInfiniteResponse<Pokemon[]>;
+  (keyword: string, typeId1: string, typeId2: string, generation: string): SWRInfiniteResponse<IPagination<Pokemon>>;
 }
 
 type IUsePmDetail = {
 	(nationalNum: string | any): SWRResponse<Pokemon>;
 }
 
-export const usePmList: IUsePmList = (param) => {
-  const { keyword = '', typeId1 = '', typeId2 = '', generation = '0' } = param;
+export const usePmList: IUsePmList = (keyword = '', typeId1 = '', typeId2 = '', generation = '0') => {
   const key: SWRInfiniteKeyLoader = (index, previousPageData) => {
-    if (previousPageData && !previousPageData.length) return null;
+    if (previousPageData && !previousPageData.items.length) return null;
     return `/classic/pokemon?currentPage=${index + 1}&keyword=${keyword}&typeId1=${typeId1}&typeId2=${typeId2}&generation=${generation}`;
   }
-  const fetcher: Fetcher<Pokemon[]> = async (url: string) => {
-    const res = await request.get(url);
-    return res.data.data.items;
+  const fetcher: Fetcher<IPagination<Pokemon>> = async (url: string) => {
+    const res = await request.list<Pokemon>(url);
+    return res.data.data;
   }
   const config: SWRInfiniteConfiguration = {
     revalidateFirstPage : false,

@@ -1,4 +1,4 @@
-export default {
+const dic: Record<string, string> = {
   'poke-index': '全国图鉴',
   'Type': '属性',
   'king': '天王',
@@ -14,3 +14,5 @@ export default {
   'Gen4': '第4世代',
   'Gen5': '第5世代',
 }
+
+export default dic;
