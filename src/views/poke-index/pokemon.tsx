@@ -26,23 +26,23 @@ const PokeIndex: FC = () => {
         <span>No.{data.national_num.toString().padStart(3,'0')}</span>
       </div>
       <div>
-        <PmType id={data.type_id1} />
-        <PmType id={data.type_id2} />
+        <PmType id={data.type1} />
+        <PmType id={data.type2} />
       </div>
       <div>
         height: <span>{data.height}m</span> |
         widght: <span>{data.weight}kg</span>
       </div>
       <div>
-        <Gender expression={data.gender} />
+        <Gender value={data.gender} />
       </div>
 
       <LightForm>
         <LightFormBlock title="">
           <LightFormItem label="ability">
-            <div>{data.ability_id1}</div>
-            <div>{data.ability_id2}</div>
-            <div>{data.ability_id3}</div>
+            <div>{data.ability1}</div>
+            <div>{data.ability2}</div>
+            <div>{data.ability3}</div>
           </LightFormItem>
           <LightFormItem label="egg group">
             <div>eggGroup</div>
@@ -55,7 +55,7 @@ const PokeIndex: FC = () => {
           <BaseStats data={data.base_stats} />
         </LightFormBlock>
         <LightFormBlock title={"type defense"}>
-          <TypeDefense typeIds={[data.type_id1, data.type_id2]} />
+          <TypeDefense typeIds={[data.type1, data.type2]} />
         </LightFormBlock>
         <LightFormBlock title={"evolution"}>
           <div>

@@ -1,29 +1,22 @@
 import React, { FC } from 'react';
 
 type IGenderProps = {
-  expression: string;
+  value: string;
+}
+
+const RULE: Record<string, string> = {
+  '-1': '无性别',
+  '0': '雄性100%',
+  '1': '雄性87.5% | 雌性12.5%',
+  '2': '雄性75% | 雌性25%',
+  '6': '雄性87.5% | 雌性12.5%',
+  '7': '雄性75% | 雌性25%',
+  '8': '雌性100%',
 }
 
 const Gender: FC<IGenderProps> = (props) => {
-  const { expression } = props;
-  const parts = expression.split(':');
-  const male = parseInt(parts[0]);
-  const female = parseInt(parts[1]);
-
-  let statement;
-
-  if (male === 0 || female === 0) {
-    if (male !== 0) {
-      statement = '雄性100%';
-    } else if (female !== 0) {
-      statement = '雌性100%';
-    } else {
-      statement = '无性别';
-    }
-  } else {
-    const total = (male + female) / 100;
-    statement = `雄性${male / total}% | 雄性${female / total}%`;
-  }
+  const { value } = props;
+  const statement = RULE[value];
 
   return <div>{statement}</div>
 }

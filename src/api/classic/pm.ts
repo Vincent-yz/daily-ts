@@ -15,17 +15,17 @@ export type Pokemon = {
   national_num: number;
   en_name: string;
   ch_name: string;
-  type_id1: string;
-  type_id2: string;
+  type1: string;
+  type2: string;
   generation: number;
   height: number;
   weight: number;
   gender: string;
-  ability_id1: string;
-  ability_id2: string;
-  ability_id3: string;
-  egg_group_id1: string;
-  egg_group_id2: string;
+  ability1: string;
+  ability2: string;
+  ability3: string;
+  egg_group1: string;
+  egg_group2: string;
   catch_rate: number;
   base_stats: IBaseStats;
 }

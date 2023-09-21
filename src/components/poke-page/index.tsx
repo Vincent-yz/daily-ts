@@ -26,8 +26,8 @@ const PokePage:FC<IPokePageProps> = (props) => {
               <div className={styles.chName}>{transfer(item)}</div>
               <div className={styles.enName}>{item.en_name}</div>
               <div className={styles.pmType}>
-                <PmType id={item.type_id1} />
-                <PmType id={item.type_id2} />
+                <PmType id={item.type1} />
+                <PmType id={item.type2} />
               </div>
             </div>
             <div className={styles.suffix}>No.{item.national_num.toString().padStart(3,'0')}</div>
