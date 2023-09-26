@@ -1,0 +1,20 @@
+.wrapper {}
+.ability {
+	display: flex;
+	background: rgba(184, 158, 25, 0.3);
+	padding: 8px;
+}
+.item {
+	display: flex;
+	background: rgba(43, 184, 41, 0.3);
+	padding: 8px;
+}
+.move {
+	display: flex;
+	background: rgba(160, 160, 160, 0.3);
+	padding: 8px;
+}
+.rowName {
+	flex-grow: 1;
+	line-height: 29px;
+}

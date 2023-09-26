@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import { usePlayerFilter, IPlayerCondition, IPlayerFilter } from '@/api/king/team';
 import DeepFilter from './deep-filter';
-import { List } from 'antd-mobile';
+import { List, Button } from 'antd-mobile';
+import styles from './filter.module.css';
 
 type IFilterProps = {
 	trainerId: string | any;
@@ -83,16 +84,18 @@ const Filter: FC<IFilterProps> = (props) => {
 			<List mode="card">
 				{filter.players.map(player => (
 					<List.Item key={player.national_num}>
-						<span>{player.count}</span>
-						<span>{player.name}</span>
-						{
-							dic[player.national_num] ?
-								<>
-									<button onClick={() => deepSelectPm(player)}>高级</button>
-									<button onClick={() => unSelectPm(player)}>移除</button>
-								</> :
-								<button onClick={() => selectPm(player)}>选择</button>
-						}
+						<div className={styles.row}>
+							<span className={styles.num}>{player.count}</span>
+							<span className={styles.name}>{player.name}</span>
+							{
+								dic[player.national_num] ?
+									<>
+										<Button color="primary" size="small" onClick={() => deepSelectPm(player)}>高级</Button>
+										<Button color="warning" size="small" onClick={() => unSelectPm(player)}>移除</Button>
+									</> :
+									<Button color="success" size="small" onClick={() => selectPm(player)}>选择</Button>
+							}
+						</div>
 					</List.Item>
 				))}
 			</List>
@@ -103,6 +106,7 @@ const Filter: FC<IFilterProps> = (props) => {
 				onSelectItem={selectItem}
 				onSelectMove={selectMove}
 				target={selected}
+				onClose={() => setDialogVisible(false)}
 			/>
 		</div>
 	)

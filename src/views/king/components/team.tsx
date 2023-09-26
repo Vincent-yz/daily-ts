@@ -1,6 +1,8 @@
-import { useTeam } from '@/api/king/team';
 import React, { FC } from 'react';
+import { useTeam } from '@/api/king/team';
 import Player from './player';
+import { Grid } from 'antd-mobile';
+import styles from './team.module.css';
 
 type ITeamProps = {
   trainerId?: string;
@@ -16,15 +18,19 @@ const Team: FC<ITeamProps> = (props) => {
   if (availableTeam.length === data.length) return null;
 
   return (
-    <div>
+    <div className={styles.teamWrapper}>
       {data.map((team) => {
         const { num, players } = team;
         return (
           <div key={team.id}>
-            <div>{num}号队伍</div>
-            {
-              players.map(p => <Player key={p.id} {...p} />)
-            }
+            <div className={styles.teamTitle}>{num}号队伍</div>
+            <Grid columns={3} gap={4}>
+            {players.map(p =>
+              <Grid.Item key={p.id}>
+                <Player {...p} />
+              </Grid.Item>
+            )}
+            </Grid>
           </div>
         )
 

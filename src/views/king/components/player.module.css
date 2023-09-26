@@ -1,0 +1,31 @@
+.wrapper {
+	font-size: 12px;
+	line-height: 18px;
+}
+.name {
+	height: 18px;
+	border-radius: 2px;
+}
+.type {
+	border: 1px #333 solid;
+	height: 18px;
+	border-radius: 2px;
+}
+.ability {
+	border: 1px #333 solid;
+	height: 18px;
+	border-radius: 2px;
+}
+.item {
+	border: 1px #333 solid;
+	height: 18px;
+	border-radius: 2px;
+}
+.move {
+	border: 1px #333 solid;
+	height: 18px;
+	border-radius: 2px;
+}
+.remark {
+
+}

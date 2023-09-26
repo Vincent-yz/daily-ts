@@ -1,0 +1,9 @@
+.teamWrapper {
+	margin: 0 12px;
+}
+.teamTitle {
+	background: #17a2b8;
+	color: #fff;
+	padding: 8px;
+	border-radius: 2px;
+}
