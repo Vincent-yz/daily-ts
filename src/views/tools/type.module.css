@@ -1,0 +1,11 @@
+.container {
+	width: 855px;
+	color: #fff;
+}
+.row {
+	display: flex;
+}
+.cell {
+	text-align: center;
+	width: 45px;
+}

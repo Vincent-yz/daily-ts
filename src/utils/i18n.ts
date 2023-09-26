@@ -5,7 +5,7 @@ enum LOCATE {
 	ch = 'ch',
 }
 
-const locateSetting: LOCATE = LOCATE.en as LOCATE;
+const locateSetting: LOCATE = LOCATE.ch as LOCATE;
 
 type ITransfer = {
 	(param: string): string;

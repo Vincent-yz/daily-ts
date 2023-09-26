@@ -4,6 +4,7 @@ import { NavBar } from 'antd-mobile';
 import styles from './index.module.css';
 import { TitleContext } from './title-context';
 import transfer from '@/utils/i18n';
+import { AppstoreOutline } from 'antd-mobile-icons';
 
 const Layout: FC = () => {
   // 定义标题上下文的方法，包装翻译
@@ -22,10 +23,14 @@ const Layout: FC = () => {
     navigate(-1);
   }
 
+  const right = (
+    match ? null : <AppstoreOutline onClick={() => navigate('/')} />
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.nav}>
-        <NavBar back={back} onBack={onBack}>
+        <NavBar back={back} onBack={onBack} right={right}>
           {pageTitle}
         </NavBar>
       </div>

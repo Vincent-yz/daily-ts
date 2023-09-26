@@ -10,7 +10,7 @@ type ITrainer = {
 }
 
 type IUseTrainer = {
-	(regionId: string | any): SWRResponse<ITrainer[]>
+	(regionId: string | any): SWRResponse<ITrainer[]>;
 }
 
 export const useTrainer: IUseTrainer = (regionId) => {
