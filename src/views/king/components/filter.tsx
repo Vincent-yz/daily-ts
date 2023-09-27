@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import { usePlayerFilter, IPlayerCondition, IPlayerFilter } from '@/api/king/team';
-import DeepFilter from './deep-filter';
+import DeepFilter, { STATUS } from './deep-filter';
 import { List, Button } from 'antd-mobile';
 import styles from './filter.module.css';
 
 type IFilterProps = {
 	trainerId: string | any;
 	// 应该有一些筛选回调？
-	onAvailableTeamChange: (teams: string[]) => void;
+	onAvailableTeamChange: (teams: number[]) => void;
 }
 
 const Filter: FC<IFilterProps> = (props) => {
@@ -37,7 +37,10 @@ const Filter: FC<IFilterProps> = (props) => {
 	const selectPm = (player: IPlayerFilter) => {
 		const target: IPlayerCondition = {
 			national_num: player.national_num,
+			exclude_ability: [],
+			exclude_item: [],
 			move: [],
+			exclude_move: [],
 		}
 		setDic(current => {
 			return {...current, [player.national_num]: target};
@@ -54,21 +57,45 @@ const Filter: FC<IFilterProps> = (props) => {
 		setCondition(current => current.filter(item => item.national_num !== player.national_num));
 	}
 
-	const selectAbility = (player: IPlayerFilter, ability?: string) => {
-		const target: IPlayerCondition = {...dic[player.national_num], ability};
+	const selectAbility = (player: IPlayerFilter, ability: string, status: number) => {
+		const target: IPlayerCondition = {
+			...dic[player.national_num],
+			ability: undefined,
+			exclude_ability: [...dic[player.national_num].exclude_ability],
+		};
+		if (status === STATUS.INCLUDE) {
+			target.ability = ability;
+		} else if (status === STATUS.EXCLUDE) {
+			target.exclude_ability.push(ability);
+		}
 		updateCondition(player.national_num, target);
 	}
 
-	const selectItem = (player: IPlayerFilter, item?: string) => {
-		const target: IPlayerCondition = {...dic[player.national_num], item};
+	const selectItem = (player: IPlayerFilter, item: string, status: number) => {
+		const target: IPlayerCondition = {
+			...dic[player.national_num],
+			item: undefined,
+			exclude_item: [...dic[player.national_num].exclude_item],
+		};
+		if (status === STATUS.INCLUDE) {
+			target.item = item;
+		} else if (status === STATUS.EXCLUDE) {
+			target.exclude_ability.push(item);
+		}
 		updateCondition(player.national_num, target);
 	}
 
-	const selectMove = (player: IPlayerFilter, move: string, isAdd: Boolean) => {
-		const target: IPlayerCondition = {...dic[player.national_num]};
-		target.move = isAdd ?
-			[...target.move, move] :
-			target.move.filter(_m => _m !== move);
+	const selectMove = (player: IPlayerFilter, move: string, status: number) => {
+		const target: IPlayerCondition = {
+			...dic[player.national_num],
+			move: dic[player.national_num].move.filter(_m => _m !== move),
+			exclude_move: dic[player.national_num].exclude_move.filter(_m => _m !== move),
+		};
+		if (status === STATUS.INCLUDE) {
+			target.move.push(move);
+		} else if (status === STATUS.EXCLUDE) {
+			target.exclude_move.push(move);
+		}
 		updateCondition(player.national_num, target);
 	}
 

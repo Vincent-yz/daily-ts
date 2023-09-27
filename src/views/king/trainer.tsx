@@ -5,7 +5,7 @@ import Team from './components/team';
 
 const Trainer: FC = () => {
   const { regionId, trainerId } = useParams();
-  const [availableTeam, setAvailableTeam] = useState<string[]>([]);
+  const [availableTeam, setAvailableTeam] = useState<number[]>([]);
 
   return (
     <div>
