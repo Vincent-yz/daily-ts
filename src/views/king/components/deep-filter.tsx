@@ -9,7 +9,7 @@ enum STATUS {
 	EXCLUDE = -1,
 }
 
-type IDeepFilter = {
+type DeepFilterProps = {
 	visible: boolean;
 	onSelectAbility: (player: IPlayerFilter, ability: string, status: STATUS) => void;
 	onSelectItem: (player: IPlayerFilter, item: string, status: STATUS) => void;
@@ -42,7 +42,7 @@ const FilterRow: FC<FilterRowProps> = (props) => {
 	);
 }
 
-const DeepFilter: FC<IDeepFilter> = (props) => {
+const DeepFilter: FC<DeepFilterProps> = (props) => {
 	const { visible, onSelectAbility, onSelectItem, onSelectMove, target, onClose } = props;
 
 	if (!target) return null;

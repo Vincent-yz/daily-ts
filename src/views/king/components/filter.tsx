@@ -17,13 +17,14 @@ const Filter: FC<IFilterProps> = (props) => {
 	const [dialogVisible, setDialogVisible] = useState<boolean>(false);
 	const [selected, setSelected] = useState<IPlayerFilter>();
 
-  const { data: filter } = usePlayerFilter(trainerId, condition);
+  const { data: mixedPlayerFilter } = usePlayerFilter(trainerId, condition);
 
 	useEffect(() => {
-		onAvailableTeamChange(filter?.available_teams ?? []);
-	}, [filter?.available_teams]);
+		onAvailableTeamChange(mixedPlayerFilter?.available_teams ?? []);
+		// eslint-disable-next-line
+	}, [mixedPlayerFilter?.available_teams]);
 
-	if (!filter) return null;
+	if (!mixedPlayerFilter) return null;
 
 	const updateCondition = (national_num: string, target: IPlayerCondition) => {
 		setDic(current => {
@@ -34,82 +35,80 @@ const Filter: FC<IFilterProps> = (props) => {
 		setDialogVisible(false);
 	}
 
-	const selectPm = (player: IPlayerFilter) => {
+	const selectPm = (filter: IPlayerFilter) => {
 		const target: IPlayerCondition = {
-			national_num: player.national_num,
+			national_num: filter.national_num,
 			exclude_ability: [],
 			exclude_item: [],
 			move: [],
 			exclude_move: [],
 		}
 		setDic(current => {
-			return {...current, [player.national_num]: target};
+			return {...current, [filter.national_num]: target};
 		});
 		setCondition(current => [...current, target]);
 	}
 
-	const unSelectPm = (player: IPlayerFilter) => {
+	const unSelectPm = (filter: IPlayerFilter) => {
 		setDic(current => {
 			const copy = {...current};
-			delete copy[player.national_num];
+			delete copy[filter.national_num];
 			return copy;
 		});
-		setCondition(current => current.filter(item => item.national_num !== player.national_num));
+		setCondition(current => current.filter(item => item.national_num !== filter.national_num));
 	}
 
-	const selectAbility = (player: IPlayerFilter, ability: string, status: number) => {
+	const selectAbility = (filter: IPlayerFilter, ability: string, status: number) => {
 		const target: IPlayerCondition = {
-			...dic[player.national_num],
+			...dic[filter.national_num],
 			ability: undefined,
-			exclude_ability: [...dic[player.national_num].exclude_ability],
+			exclude_ability: [...dic[filter.national_num].exclude_ability],
 		};
 		if (status === STATUS.INCLUDE) {
 			target.ability = ability;
 		} else if (status === STATUS.EXCLUDE) {
 			target.exclude_ability.push(ability);
 		}
-		updateCondition(player.national_num, target);
+		updateCondition(filter.national_num, target);
 	}
 
-	const selectItem = (player: IPlayerFilter, item: string, status: number) => {
+	const selectItem = (filter: IPlayerFilter, item: string, status: number) => {
 		const target: IPlayerCondition = {
-			...dic[player.national_num],
+			...dic[filter.national_num],
 			item: undefined,
-			exclude_item: [...dic[player.national_num].exclude_item],
+			exclude_item: [...dic[filter.national_num].exclude_item],
 		};
 		if (status === STATUS.INCLUDE) {
 			target.item = item;
 		} else if (status === STATUS.EXCLUDE) {
 			target.exclude_ability.push(item);
 		}
-		updateCondition(player.national_num, target);
+		updateCondition(filter.national_num, target);
 	}
 
-	const selectMove = (player: IPlayerFilter, move: string, status: number) => {
+	const selectMove = (filter: IPlayerFilter, move: string, status: number) => {
 		const target: IPlayerCondition = {
-			...dic[player.national_num],
-			move: dic[player.national_num].move.filter(_m => _m !== move),
-			exclude_move: dic[player.national_num].exclude_move.filter(_m => _m !== move),
+			...dic[filter.national_num],
+			move: dic[filter.national_num].move.filter(_m => _m !== move),
+			exclude_move: dic[filter.national_num].exclude_move.filter(_m => _m !== move),
 		};
 		if (status === STATUS.INCLUDE) {
 			target.move.push(move);
 		} else if (status === STATUS.EXCLUDE) {
 			target.exclude_move.push(move);
 		}
-		updateCondition(player.national_num, target);
+		updateCondition(filter.national_num, target);
 	}
 
-	const deepSelectPm = (player: IPlayerFilter) => {
+	const deepSelectPm = (filter: IPlayerFilter) => {
 		setDialogVisible(true);
-		setSelected(player);
+		setSelected(filter);
 	}
 
 	return (
 		<div>
-			<div>filter</div>
-
 			<List mode="card">
-				{filter.players.map(player => (
+				{mixedPlayerFilter.players.map(player => (
 					<List.Item key={player.national_num}>
 						<div className={styles.row}>
 							<span className={styles.num}>{player.count}</span>
