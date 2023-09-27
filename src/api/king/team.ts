@@ -1,5 +1,6 @@
 import request from '@/utils/request';
 import useSWR, { Fetcher, Key, SWRResponse } from 'swr';
+import { IPlayer } from './player';
 
 export type IPlayerCondition = {
 	national_num: string;
@@ -18,21 +19,6 @@ export type IPlayerFilter = {
 	item: Record<string, number>;
 	move: Record<string, number>;
 	count: number;
-}
-
-export type IPlayer = {
-	id: string;
-	trainer_id: string;
-	team_num: number;
-	national_num: string;
-	name: string;
-	type1: string;
-	type2: string;
-	ability: string;
-	item: string;
-	nature: string;
-	moves: string[];
-	remark: string;
 }
 
 export type ITeam = {
@@ -54,9 +40,9 @@ type IUseTeam = {
 }
 
 export const usePlayerFilter: IUsePlayerFilter = (trainerId, condition) => {
-	const key: Key = trainerId ? [`/king/${trainerId}/team/filter`, condition] : null;
-	const fetcher = async (
-		[url, condition]: [string, IPlayerCondition[]]
+	const key: Key = trainerId ? [`/king/trainer/${trainerId}/team/filter`, condition] : null;
+	const fetcher: Fetcher<IMixedPlayerFilter, [string, IPlayerCondition[]]> = async (
+		[url, condition]
 	) => {
 		const res = await request.post(url, condition);
 		return res.data.data;
@@ -66,7 +52,7 @@ export const usePlayerFilter: IUsePlayerFilter = (trainerId, condition) => {
 }
 
 export const useTeam: IUseTeam = (trainerId) => {
-	const key: Key = trainerId ? `/king/${trainerId}/team` : null;
+	const key: Key = trainerId ? `/king/trainer/${trainerId}/team` : null;
 	const fetcher: Fetcher<ITeam[], string> = async (url) => {
 		const res = await request.get(url);
 		return res.data.data;
