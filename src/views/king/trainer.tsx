@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useParams } from 'react-router';
 import Filter from './components/filter';
+import KingDropdown from './components/king-dropdown';
 import Team from './components/team';
 
 const Trainer: FC = () => {
@@ -8,9 +9,10 @@ const Trainer: FC = () => {
   const [availableTeam, setAvailableTeam] = useState<number[]>([]);
 
   return (
-    <div>
-      <div>Region: {regionId}</div>
-      <div>trainer: {trainerId}</div>
+    <div style={{paddingBottom: 12}}>
+      <KingDropdown
+        activeRegion={regionId}
+        activeTrainer={trainerId} />
       <Filter
         trainerId={trainerId}
         onAvailableTeamChange={(teams) => setAvailableTeam(teams)}

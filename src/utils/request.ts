@@ -18,7 +18,8 @@ class Request {
   instance: AxiosInstance;
 
   baseConfig: AxiosRequestConfig = {
-    baseURL: 'http://localhost:8080',
+    // baseURL: 'http://localhost:8080',
+    baseURL: 'http://10.11.33.12:8080',
     withCredentials: false,
     timeout: 30000,
     headers: {

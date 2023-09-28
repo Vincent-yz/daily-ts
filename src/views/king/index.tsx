@@ -12,17 +12,15 @@ const King: FC = () => {
   useEffect(() => setPageTitle('king'), [setPageTitle]);
 
   return (
-    <div>
-      <List>
-        {data.map(region =>
-          <List.Item key={region.en_name} arrow>
-            <div onClick={() => navigate(`/king/${region.en_name}`)}>
-            {i18n.transfer(region)}
-            </div>
-          </List.Item>
-        )}
-      </List>
-    </div>
+    <List header="region">
+      {data.map(region =>
+        <List.Item key={region.en_name} arrow>
+          <div onClick={() => navigate(`/king/${region.en_name}`)}>
+          {i18n.transfer(region)}
+          </div>
+        </List.Item>
+      )}
+    </List>
   );
 }
 

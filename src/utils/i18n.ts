@@ -38,8 +38,10 @@ class Internationalization {
 	public transfer: ITransfer = (param) => {
 		if (typeof param === 'string') {
 			return dicMap[this.current][param];
-		} else {
+		} else if (param !== undefined) {
 			return (this.current === LOCATE.en) ? param['en_name'] : param['ch_name'];
+		} else {
+			return '';
 		}
 	}
 }
