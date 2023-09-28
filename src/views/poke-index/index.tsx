@@ -6,7 +6,7 @@ import { usePmList, usePmType } from '@/api/classic';
 import styles from './index.module.css';
 import generationSelectorOptions from './gen-options';
 import i18n from '@/utils/i18n';
-import useTitleContext from '@/layout/title-context';
+import useLayoutContext from '@/layout/layout-context';
 
 const PokeIndex: FC = () => {
   // 初始化状态
@@ -16,7 +16,7 @@ const PokeIndex: FC = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [pmTypeOptions, setTypeOption]  = useState<SelectorOption<string>[]>([]);
   const ref = useRef<DropdownRef>(null);
-  const { setPageTitle } = useTitleContext();
+  const { setPageTitle } = useLayoutContext();
   const { data: pmTypeList = [] } = usePmType();
   const { data: pmList = [], size, setSize, isValidating, isLoading } = usePmList(keyword, type[0], type[1], generation);
   // 转化状态

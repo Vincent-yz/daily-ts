@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { usePmDetail } from '@/api/classic';
-import useTitleContext from '@/layout/title-context';
+import useLayoutContext from '@/layout/layout-context';
 import i18n from '@/utils/i18n';
 import PmType from '@/components/pm-type';
 import Gender from './components/gender';
@@ -13,7 +13,7 @@ const PokeIndex: FC = () => {
   const { nationalNum } = useParams();
   const navigate = useNavigate();
   const { data } = usePmDetail(nationalNum);
-  const { setPageTitle } = useTitleContext();
+  const { setPageTitle } = useLayoutContext();
   useEffect(() => setPageTitle(data), [data, setPageTitle]);
 
   if (!data) return null;

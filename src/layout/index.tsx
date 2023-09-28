@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { Outlet, useMatch, useNavigate } from 'react-router';
 import { NavBar } from 'antd-mobile';
 import styles from './index.module.css';
-import { TitleContext } from './title-context';
+import { LayoutContext } from './layout-context';
 import i18n from '@/utils/i18n';
 import { AppstoreOutline } from 'antd-mobile-icons';
 
@@ -35,9 +35,9 @@ const Layout: FC = () => {
         </NavBar>
       </div>
       <div className={styles.content}>
-        <TitleContext.Provider value={{ pageTitle, setPageTitle }}>
+        <LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
           <Outlet />
-        </TitleContext.Provider>
+        </LayoutContext.Provider>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import useTitleContext from '@/layout/title-context';
+import useLayoutContext from '@/layout/layout-context';
 
 const Raising = () => {
-  const { setPageTitle } = useTitleContext();
+  const { setPageTitle } = useLayoutContext();
   useEffect(() => setPageTitle('raising'), [setPageTitle]);
 
   return (
