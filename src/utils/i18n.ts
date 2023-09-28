@@ -1,11 +1,17 @@
 import _len from './locate/locate.en';
 import _lch from './locate/locate.ch';
-enum LOCATE {
+
+export enum LOCATE {
 	en = 'en',
 	ch = 'ch',
 }
 
-const locateSetting: LOCATE = LOCATE.ch as LOCATE;
+type IDicMap = Record<LOCATE, Record<string, string>>;
+
+const dicMap: IDicMap = {
+	[LOCATE.en]: _len,
+	[LOCATE.ch]: _lch,
+}
 
 type ITransfer = {
 	(param: string): string;
@@ -14,19 +20,30 @@ type ITransfer = {
 	(param: any): string;
 }
 
-type IDictionary = Record<LOCATE, Record<string, string>>;
+class Internationalization {
+	current: LOCATE;
 
-const dictionary: IDictionary = {
-	[LOCATE.en]: _len,
-	[LOCATE.ch]: _lch,
-}
+	constructor() {
+		this.current = LOCATE.ch as LOCATE;
+	}
 
-const transfer: ITransfer = (param) => {
-	if (typeof param === 'string') {
-		return dictionary[locateSetting][param];
-	} else {
-		return (locateSetting === LOCATE.en) ? param['en_name'] : param['ch_name'];
+	public get(): LOCATE {
+		return this.current;
+	}
+
+	public set(locate: LOCATE) {
+		this.current = locate;
+	}
+
+	public transfer: ITransfer = (param) => {
+		if (typeof param === 'string') {
+			return dicMap[this.current][param];
+		} else {
+			return (this.current === LOCATE.en) ? param['en_name'] : param['ch_name'];
+		}
 	}
 }
 
-export default transfer;
+const i18n = new Internationalization();
+
+export default i18n;

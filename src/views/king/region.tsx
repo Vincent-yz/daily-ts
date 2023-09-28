@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useTrainer } from '@/api/king';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 
 const Region: FC = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Region: FC = () => {
         <div
           key={trainer.id}
           onClick={() => navigate(`/king/${regionId}/trainer/${trainer.id}`)}>
-          {transfer(trainer)}
+          {i18n.transfer(trainer)}
         </div>
       )}
     </div>

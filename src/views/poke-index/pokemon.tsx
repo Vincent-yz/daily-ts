@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { usePmDetail } from '@/api/classic';
 import useTitleContext from '@/layout/title-context';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 import PmType from '@/components/pm-type';
 import Gender from './components/gender';
 import BaseStats from './components/base-stats';
@@ -21,7 +21,7 @@ const PokeIndex: FC = () => {
   return (
     <div>
       <div>
-        <span>{transfer(data)}</span> |
+        <span>{i18n.transfer(data)}</span> |
         <span>{data.en_name}</span> |
         <span>No.{data.national_num.toString().padStart(3,'0')}</span>
       </div>

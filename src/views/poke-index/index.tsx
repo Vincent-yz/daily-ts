@@ -5,7 +5,7 @@ import { FilterOutline } from 'antd-mobile-icons';
 import { usePmList, usePmType } from '@/api/classic';
 import styles from './index.module.css';
 import generationSelectorOptions from './gen-options';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 import useTitleContext from '@/layout/title-context';
 
 const PokeIndex: FC = () => {
@@ -24,7 +24,7 @@ const PokeIndex: FC = () => {
   useEffect(() => setTypeOption(
     pmTypeList.map(item => {
       return {
-        label: transfer(item),
+        label: i18n.transfer(item),
         value: item.en_name,
       }
     })
@@ -75,7 +75,7 @@ const PokeIndex: FC = () => {
         <Dropdown ref={ref} className={styles.filter}>
           <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
             <div className={styles.dropdown}>
-              <div>{transfer('Type')}（最多选择两项）</div>
+              <div>{i18n.transfer('Type')}（最多选择两项）</div>
               <Selector
                 columns={5}
                 options={pmTypeOptions}
@@ -84,7 +84,7 @@ const PokeIndex: FC = () => {
                 onChange={setMixType}
                 style={{'--padding': '8px'}}
               />
-              <div>{transfer('Gen')}（最多选择一项）</div>
+              <div>{i18n.transfer('Gen')}（最多选择一项）</div>
               <Selector
                 columns={4}
                 options={generationSelectorOptions}

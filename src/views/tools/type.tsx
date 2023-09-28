@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { IPmType, usePmType } from '@/api/classic';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 import styles from './type.module.css';
 
 type IRenderType = {
@@ -68,7 +68,7 @@ const Type = () => {
           <span
             key={type.en_name}
             className={styles.cell}
-            children={transfer(type)}
+            children={i18n.transfer(type)}
             style={{background: type.color}}
           />
         ))}

@@ -3,7 +3,7 @@ import { Outlet, useMatch, useNavigate } from 'react-router';
 import { NavBar } from 'antd-mobile';
 import styles from './index.module.css';
 import { TitleContext } from './title-context';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 import { AppstoreOutline } from 'antd-mobile-icons';
 
 const Layout: FC = () => {
@@ -11,7 +11,7 @@ const Layout: FC = () => {
   const [pageTitle, internalSetPageTitle] = useState<string>('标题');
   const setPageTitle = (val: string) => {
     if (val) {
-      internalSetPageTitle(transfer(val));
+      internalSetPageTitle(i18n.transfer(val));
     }
   };
 

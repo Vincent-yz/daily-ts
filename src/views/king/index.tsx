@@ -1,8 +1,9 @@
 import React, { FC, useEffect } from 'react';
 import { useRegion } from '@/api/king';
-import transfer from '@/utils/i18n';
+import i18n from '@/utils/i18n';
 import { useNavigate } from 'react-router';
 import useTitleContext from '@/layout/title-context';
+import { List } from 'antd-mobile';
 
 const King: FC = () => {
   const navigate = useNavigate();
@@ -12,14 +13,15 @@ const King: FC = () => {
 
   return (
     <div>
-      <div>King</div>
-      {data.map(region =>
-        <div
-          key={region.en_name}
-          onClick={() => navigate(`/king/${region.en_name}`)}>
-          {transfer(region)}
-        </div>
-      )}
+      <List>
+        {data.map(region =>
+          <List.Item key={region.en_name} arrow>
+            <div onClick={() => navigate(`/king/${region.en_name}`)}>
+            {i18n.transfer(region)}
+            </div>
+          </List.Item>
+        )}
+      </List>
     </div>
   );
 }
