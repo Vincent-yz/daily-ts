@@ -2,8 +2,8 @@ import _len from './locate/locate.en';
 import _lch from './locate/locate.ch';
 
 export enum LOCATE {
-	en = 'en',
-	ch = 'ch',
+	en = 'English',
+	ch = '中文',
 }
 
 type IDicMap = Record<LOCATE, Record<string, string>>;

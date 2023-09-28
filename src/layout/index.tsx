@@ -9,11 +9,15 @@ import { AppstoreOutline } from 'antd-mobile-icons';
 const Layout: FC = () => {
   // 定义标题上下文的方法，包装翻译
   const [pageTitle, internalSetPageTitle] = useState<string>('标题');
+  const [locateChangedTime, internalChangeLocate] = useState<number>(0);
   const setPageTitle = (val: string) => {
     if (val) {
       internalSetPageTitle(i18n.transfer(val));
     }
   };
+  const changeLocate = () => {
+    internalChangeLocate(p => p + 1);
+  }
 
   const navigate = useNavigate();
   const match = useMatch('/dashboard/*');
@@ -35,7 +39,7 @@ const Layout: FC = () => {
         </NavBar>
       </div>
       <div className={styles.content}>
-        <LayoutContext.Provider value={{ pageTitle, setPageTitle }}>
+        <LayoutContext.Provider value={{ pageTitle, setPageTitle, locateChangedTime, changeLocate }}>
           <Outlet />
         </LayoutContext.Provider>
       </div>

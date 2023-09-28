@@ -17,11 +17,11 @@ export type IPlayer = {
 }
 
 type IUsePlayerUpdate = {
-	(teamId: string | any, player: IPlayer): SWRResponse<boolean>;
+	(trainerId: string | any, player: IPlayer): SWRResponse<boolean>;
 }
 
-export const usePlayerUpdate: IUsePlayerUpdate = (teamId, player) => {
-	const key: Key = teamId ? [`/king/team/${teamId}/player`, player] : null;
+export const usePlayerUpdate: IUsePlayerUpdate = (trainerId, player) => {
+	const key: Key = trainerId ? [`/king/trainer/${trainerId}/player`, player] : null;
 	const fetcher: Fetcher<boolean, [string, IPlayer]> = async ([url, player]) => {
 		const res = await request.put(url, player);
 		return res.data.data;
