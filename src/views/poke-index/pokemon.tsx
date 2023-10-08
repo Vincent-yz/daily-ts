@@ -52,7 +52,7 @@ const PokeIndex: FC = () => {
           <div onClick={() => navigate('move')}>move</div>
         </LightFormBlock>
         <LightFormBlock title={"base stats"}>
-          <BaseStats data={data.base_stats} />
+          <BaseStats data={data.base_stats} total={data.total_stats} />
         </LightFormBlock>
         <LightFormBlock title={"type defense"}>
           <TypeDefense typeIds={[data.type1, data.type2]} />

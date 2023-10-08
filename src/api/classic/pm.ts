@@ -28,20 +28,21 @@ export type Pokemon = {
   egg_group2: string;
   catch_rate: number;
   base_stats: IBaseStats;
+  total_stats: number;
 }
 
 type IUsePmList = {
-  (keyword: string, typeId1: string, typeId2: string, generation: string): SWRInfiniteResponse<IPagination<Pokemon>>;
+  (keyword: string, type1: string, type2: string, generation: string): SWRInfiniteResponse<IPagination<Pokemon>>;
 }
 
 type IUsePmDetail = {
 	(nationalNum: string | any): SWRResponse<Pokemon>;
 }
 
-export const usePmList: IUsePmList = (keyword = '', typeId1 = '', typeId2 = '', generation = '0') => {
+export const usePmList: IUsePmList = (keyword = '', type1 = '', type2 = '', generation = '0') => {
   const key: SWRInfiniteKeyLoader = (index, previousPageData) => {
     if (previousPageData && !previousPageData.items.length) return null;
-    return `/classic/pokemon?currentPage=${index + 1}&keyword=${keyword}&typeId1=${typeId1}&typeId2=${typeId2}&generation=${generation}`;
+    return `/classic/pokemon?currentPage=${index + 1}&keyword=${keyword}&type1=${type1}&type2=${type2}&generation=${generation}`;
   }
   const fetcher: Fetcher<IPagination<Pokemon>> = async (url: string) => {
     const res = await request.list<Pokemon>(url);
