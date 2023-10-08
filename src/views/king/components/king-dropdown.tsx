@@ -32,9 +32,6 @@ const KingDropdown: FC<KingDropDownProps> = (props) => {
 	const regionTitle = region?.find(item => item.en_name === activeRegion);
 	const trainerTitle = trainer?.find(item => item.id === activeTrainer);
 
-	console.log(matchRegion);
-	console.log(matchTrainer);
-
 	return (
 		<Dropdown ref={ref}>
 			{matchRegion ?

@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { Dialog, Button } from 'antd-mobile';
-import { IPlayerFilter } from '@/api/king/team';
+import { IPlayerCondition, IPlayerFilter } from '@/api/king/team';
 import styles from './deep-filter.module.css';
 
 enum STATUS {
@@ -11,10 +11,9 @@ enum STATUS {
 
 type DeepFilterProps = {
 	visible: boolean;
-	onSelectAbility: (player: IPlayerFilter, ability: string, status: STATUS) => void;
-	onSelectItem: (player: IPlayerFilter, item: string, status: STATUS) => void;
-	onSelectMove: (player: IPlayerFilter, move: string, status: STATUS) => void;
+	onUpdateCondition: (condition: IPlayerCondition) => void;
 	target?: IPlayerFilter;
+	condition: IPlayerCondition[];
 	onClose: () => void;
 }
 
@@ -23,6 +22,14 @@ type FilterRowProps = {
 	status: STATUS;
 	children: ReactNode;
 	className?: string;
+}
+
+const blankCondition: IPlayerCondition = {
+	national_num: '',
+	exclude_ability: [],
+	exclude_item: [],
+	move: [],
+	exclude_move: [],
 }
 
 const FilterRow: FC<FilterRowProps> = (props) => {
@@ -43,9 +50,54 @@ const FilterRow: FC<FilterRowProps> = (props) => {
 }
 
 const DeepFilter: FC<DeepFilterProps> = (props) => {
-	const { visible, onSelectAbility, onSelectItem, onSelectMove, target, onClose } = props;
+	const { visible, onUpdateCondition, target, condition, onClose } = props;
 
 	if (!target) return null;
+
+	const selectAbility = (ability: string, status: number) => {
+		const current: IPlayerCondition = condition.find(cItem => cItem.national_num === target.national_num) ?? blankCondition;
+		const next: IPlayerCondition = {
+			...current,
+			ability: undefined,
+			exclude_ability: [...current.exclude_ability],
+		};
+		if (status === STATUS.INCLUDE) {
+			next.ability = ability;
+		} else if (status === STATUS.EXCLUDE) {
+			next.exclude_ability.push(ability);
+		}
+		onUpdateCondition(next);
+	}
+
+	const selectItem = (item: string, status: number) => {
+		const current: IPlayerCondition = condition.find(cItem => cItem.national_num === target.national_num) ?? blankCondition;
+		const next: IPlayerCondition = {
+			...current,
+			item: undefined,
+			exclude_item: [...current.exclude_item],
+		};
+		if (status === STATUS.INCLUDE) {
+			next.item = item;
+		} else if (status === STATUS.EXCLUDE) {
+			next.exclude_ability.push(item);
+		}
+		onUpdateCondition(next);
+	}
+
+	const selectMove = (move: string, status: number) => {
+		const current: IPlayerCondition = condition.find(cItem => cItem.national_num === target.national_num) ?? blankCondition;
+		const next: IPlayerCondition = {
+			...current,
+			move: current.move.filter(_m => _m !== move),
+			exclude_move: current.exclude_move.filter(_m => _m !== move),
+		};
+		if (status === STATUS.INCLUDE) {
+			next.move.push(move);
+		} else if (status === STATUS.EXCLUDE) {
+			next.exclude_move.push(move);
+		}
+		onUpdateCondition(next);
+	}
 
 	return (
 		<Dialog
@@ -58,7 +110,7 @@ const DeepFilter: FC<DeepFilterProps> = (props) => {
 					{Object.entries(target.ability).map(([ability, status]) =>
 						<FilterRow
 							key={ability}
-							onClick={(s) => onSelectAbility(target, ability, s)}
+							onClick={(s) => selectAbility(ability, s)}
 							status={status}
 							children={ability}
 							className={styles.ability}
@@ -67,7 +119,7 @@ const DeepFilter: FC<DeepFilterProps> = (props) => {
 					{Object.entries(target.item).map(([item, status]) =>
 						<FilterRow
 							key={item}
-							onClick={(s) => onSelectItem(target, item, s)}
+							onClick={(s) => selectItem(item, s)}
 							status={status}
 							children={item}
 							className={styles.item}
@@ -76,7 +128,7 @@ const DeepFilter: FC<DeepFilterProps> = (props) => {
 					{Object.entries(target.move).map(([move, status]) =>
 						<FilterRow
 							key={move}
-							onClick={(s) => onSelectMove(target, move, s)}
+							onClick={(s) => selectMove(move, s)}
 							status={status}
 							children={move}
 							className={styles.move}

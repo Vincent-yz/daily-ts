@@ -2,6 +2,7 @@ import request from '@/utils/request';
 import useSWR, { Fetcher, Key, SWRResponse } from 'swr';
 import { IPlayer } from './player';
 
+// 用户选择条件
 export type IPlayerCondition = {
 	national_num: string;
 	ability?: string;
@@ -12,6 +13,7 @@ export type IPlayerCondition = {
 	exclude_move: string[];
 }
 
+// 展示
 export type IPlayerFilter = {
 	national_num: string;
 	name: string;
