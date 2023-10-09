@@ -1,6 +1,6 @@
 import React, { createRef, FC, useEffect } from 'react';
-import { IPlayer } from '@/api/king/player';
-import { Form, Dialog, Input, TextArea, Button } from 'antd-mobile';
+import { IPlayer, putPlayer } from '@/api/king/player';
+import { Form, Dialog, Input, TextArea, Button, Toast } from 'antd-mobile';
 import { FormInstance } from 'rc-field-form';
 
 type PlayerEditorPorps = {
@@ -19,6 +19,10 @@ const PlayerEditor: FC<PlayerEditorPorps> = (props) => {
 			...formRef.current?.getFieldsValue(),
 		}
 		console.log(playerForm);
+
+		await putPlayer(trainerId, playerForm);
+		Toast.show('保存成功');
+		onClose();
 	}
 
 	useEffect(() => {

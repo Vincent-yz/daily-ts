@@ -1,5 +1,4 @@
 import request from '@/utils/request';
-import useSWR, { Fetcher, Key, SWRResponse } from 'swr';
 
 export type IPlayer = {
 	id: string;
@@ -16,16 +15,11 @@ export type IPlayer = {
 	remark: string;
 }
 
-type IUsePlayerUpdate = {
-	(trainerId: string | any, player: IPlayer): SWRResponse<boolean>;
+type IPutPlayer = {
+	(trainerId: string | any, player: IPlayer): Promise<boolean>;
 }
 
-export const usePlayerUpdate: IUsePlayerUpdate = (trainerId, player) => {
-	const key: Key = trainerId ? [`/king/trainer/${trainerId}/player`, player] : null;
-	const fetcher: Fetcher<boolean, [string, IPlayer]> = async ([url, body]) => {
-		const res = await request.put(url, body);
-		return res.data.data;
-	}
-
-	return useSWR(key, fetcher);
+export const putPlayer: IPutPlayer = async (trainerId, player) => {
+	const url: string = `/king/trainer/${trainerId}/player`;
+	return request.put(url, player).then(res => res.data.data);
 }
