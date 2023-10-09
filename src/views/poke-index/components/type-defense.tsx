@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { usePmType } from '@/api/classic';
 import PmType from '@/components/pm-type';
-import { LightFormItem } from '@/components/light-form';
+import { Grid } from 'antd-mobile';
 
 type ITypeDefenseProps = {
   typeIds: string[];
@@ -49,23 +49,28 @@ const TypeDefense: FC<ITypeDefenseProps> = (props) => {
   }
 
   return (
-    <>
-      <LightFormItem label="x400">
+    <Grid columns={4}>
+      <Grid.Item span={1}>x400</Grid.Item>
+      <Grid.Item span={3}>
         {x400.map(id => <PmType key={id} id={id} />)}
-      </LightFormItem>
-      <LightFormItem label="x200">
+      </Grid.Item>
+      <Grid.Item span={1}>x200</Grid.Item>
+      <Grid.Item span={3}>
         {x200.map(id => <PmType key={id} id={id} />)}
-      </LightFormItem>
-      <LightFormItem label="x50">
+      </Grid.Item>
+      <Grid.Item span={1}>x50</Grid.Item>
+      <Grid.Item span={3}>
         {x50.map(id => <PmType key={id} id={id} />)}
-      </LightFormItem>
-      <LightFormItem label="x25">
+      </Grid.Item>
+      <Grid.Item span={1}>x25</Grid.Item>
+      <Grid.Item span={3}>
         {x25.map(id => <PmType key={id} id={id} />)}
-      </LightFormItem>
-      <LightFormItem label="x0">
+      </Grid.Item>
+      <Grid.Item span={1}>x0</Grid.Item>
+      <Grid.Item span={3}>
         {x0.map(id => <PmType key={id} id={id} />)}
-      </LightFormItem>
-    </>
+      </Grid.Item>
+    </Grid>
   );
 }
 

@@ -5,13 +5,13 @@ import { FormInstance } from 'rc-field-form';
 
 type PlayerEditorPorps = {
 	visible: boolean;
+	trainerId?: string;
 	target?: IPlayer;
 	onClose: () => void;
-	onConfirm: () => void;
 }
 
 const PlayerEditor: FC<PlayerEditorPorps> = (props) => {
-	const { visible, target, onClose, onConfirm } = props;
+	const { visible, trainerId, target, onClose } = props;
 	const formRef = createRef<FormInstance>();
 	const onFinish = async () => {
 		const playerForm: IPlayer = {
@@ -28,7 +28,7 @@ const PlayerEditor: FC<PlayerEditorPorps> = (props) => {
 				moves: [...target.moves],
 			});
 		}
-	}, [target]);
+	}, [target, formRef]);
 
 	if (!target) return null;
 

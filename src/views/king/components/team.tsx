@@ -49,9 +49,9 @@ const Team: FC<ITeamProps> = (props) => {
 
       <PlayerEditor
         visible={dialogVisible}
+        trainerId={trainerId}
         target={selected}
         onClose={() => setDialogVisible(false)}
-        onConfirm={() => setDialogVisible(false)}
       />
     </div>
   )

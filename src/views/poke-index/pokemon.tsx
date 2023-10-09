@@ -5,9 +5,9 @@ import useLayoutContext from '@/layout/layout-context';
 import i18n from '@/utils/i18n';
 import PmType from '@/components/pm-type';
 import Gender from './components/gender';
-import BaseStats from './components/base-stats';
 import TypeDefense from './components/type-defense';
-import LightForm, { LightFormBlock, LightFormItem } from '@/components/light-form';
+import Block from '@/components/block';
+import { Grid } from 'antd-mobile';
 
 const PokeIndex: FC = () => {
   const { nationalNum } = useParams();
@@ -20,49 +20,73 @@ const PokeIndex: FC = () => {
 
   return (
     <div>
-      <div>
-        <span>{i18n.transfer(data)}</span> |
-        <span>{data.en_name}</span> |
-        <span>No.{data.national_num.toString().padStart(3,'0')}</span>
-      </div>
-      <div>
-        <PmType id={data.type1} />
-        <PmType id={data.type2} />
-      </div>
-      <div>
-        height: <span>{data.height}m</span> |
-        widght: <span>{data.weight}kg</span>
-      </div>
-      <div>
-        <Gender value={data.gender} />
-      </div>
+      <Block>
+        <div>
+          <span>{i18n.transfer(data)}</span> |
+          <span>{data.en_name}</span> |
+          <span>No.{data.national_num.toString().padStart(3,'0')}</span>
+        </div>
+        <div>
+          <PmType id={data.type1} />
+          <PmType id={data.type2} />
+        </div>
+        <div>
+          height: <span>{data.height}m</span> |
+          widght: <span>{data.weight}kg</span>
+        </div>
+        <div>
+          <Gender value={data.gender} />
+        </div>
+      </Block>
 
-      <LightForm>
-        <LightFormBlock title="">
-          <LightFormItem label="ability">
-            <div>{data.ability1}</div>
-            <div>{data.ability2}</div>
-            <div>{data.ability3}</div>
-          </LightFormItem>
-          <LightFormItem label="egg group">
+      <Block title="">
+        <Grid columns={4}>
+          <Grid.Item span={1}>ability</Grid.Item>
+          <Grid.Item span={3}>{data.ability1}</Grid.Item>
+          <Grid.Item span={1}></Grid.Item>
+          <Grid.Item span={3}>{data.ability2}</Grid.Item>
+          <Grid.Item span={1}></Grid.Item>
+          <Grid.Item span={3}>{data.ability3}</Grid.Item>
+
+          <Grid.Item span={1}>egg group</Grid.Item>
+          <Grid.Item span={3}>
             <div>eggGroup</div>
-          </LightFormItem>
-        </LightFormBlock>
-        <LightFormBlock title={"move"}>
-          <div onClick={() => navigate('move')}>move</div>
-        </LightFormBlock>
-        <LightFormBlock title={"base stats"}>
-          <BaseStats data={data.base_stats} total={data.total_stats} />
-        </LightFormBlock>
-        <LightFormBlock title={"type defense"}>
-          <TypeDefense typeIds={[data.type1, data.type2]} />
-        </LightFormBlock>
-        <LightFormBlock title={"evolution"}>
-          <div>
-            evolution
-          </div>
-        </LightFormBlock>
-      </LightForm>
+          </Grid.Item>
+        </Grid>
+      </Block>
+
+      <Block title={"move"}>
+        <div onClick={() => navigate('move')}>move</div>
+      </Block>
+
+      <Block title={"base stats"}>
+        <Grid columns={4}>
+          <Grid.Item span={1}>hp</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.hp}</Grid.Item>
+          <Grid.Item span={1}>attack</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.attack}</Grid.Item>
+          <Grid.Item span={1}>defense</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.defense}</Grid.Item>
+          <Grid.Item span={1}>sp_attack</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.sp_attack}</Grid.Item>
+          <Grid.Item span={1}>sp_defense</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.sp_defense}</Grid.Item>
+          <Grid.Item span={1}>speed</Grid.Item>
+          <Grid.Item span={3}>{data.base_stats.speed}</Grid.Item>
+          <Grid.Item span={1}>total</Grid.Item>
+          <Grid.Item span={3}>{data.total_stats}</Grid.Item>
+        </Grid>
+      </Block>
+
+      <Block title={"type defense"}>
+        <TypeDefense typeIds={[data.type1, data.type2]} />
+      </Block>
+
+      <Block title={"evolution"}>
+        <div>
+          evolution
+        </div>
+      </Block>
     </div>
   );
 }
