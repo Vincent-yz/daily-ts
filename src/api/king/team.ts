@@ -2,7 +2,9 @@ import request from '@/utils/request';
 import useSWR, { Fetcher, Key, SWRResponse } from 'swr';
 import { IPlayer } from './player';
 
-// 用户选择条件
+/**
+ * 过滤条件
+ */
 export type IPlayerCondition = {
 	national_num: string;
 	ability?: string;
@@ -13,7 +15,9 @@ export type IPlayerCondition = {
 	exclude_move: string[];
 }
 
-// 展示
+/**
+ * 过滤器
+ */
 export type IPlayerFilter = {
 	national_num: string;
 	name: string;
@@ -30,6 +34,9 @@ export type ITeam = {
 
 type IMixedPlayerFilter = {
 	players: IPlayerFilter[];
+	/**
+	 * 筛选后的队伍编号
+	 */
 	available_teams: number[];
 }
 
@@ -44,9 +51,9 @@ type IUseTeam = {
 export const usePlayerFilter: IUsePlayerFilter = (trainerId, condition) => {
 	const key: Key = trainerId ? [`/king/trainer/${trainerId}/team/filter`, condition] : null;
 	const fetcher: Fetcher<IMixedPlayerFilter, [string, IPlayerCondition[]]> = async (
-		[url, condition]
+		[url, body]
 	) => {
-		const res = await request.post(url, condition);
+		const res = await request.post(url, body);
 		return res.data.data;
 	}
 

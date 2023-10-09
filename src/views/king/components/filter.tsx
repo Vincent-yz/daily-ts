@@ -29,7 +29,7 @@ const blankFilter: IPlayerFilter = {
 
 const Filter: FC<IFilterProps> = (props) => {
 	const { trainerId, onAvailableTeamChange } = props;
-	const [tCondition, setTCondition] = useState<Record<string | any, IPlayerCondition[]>>({});
+	const [tCondition, setTCondition] = useState<Record<string, IPlayerCondition[]>>({});
 	const [dialogVisible, setDialogVisible] = useState<boolean>(false);
 	const [selected, setSelected] = useState<IPlayerFilter>(blankFilter);
 

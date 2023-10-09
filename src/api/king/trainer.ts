@@ -15,7 +15,7 @@ type IUseTrainer = {
 
 export const useTrainer: IUseTrainer = (regionId) => {
 	const key: Key = regionId ? `/king/region/${regionId}/trainer` : null;
-	const fetcher: Fetcher<ITrainer[]> = async (url: string) => {
+	const fetcher: Fetcher<ITrainer[], string> = async (url) => {
 		const res = await request.get(url);
 		return res.data.data;
 	}

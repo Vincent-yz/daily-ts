@@ -13,7 +13,7 @@ type IUseRegion = {
 
 export const useRegion: IUseRegion = () => {
 	const key: Key = '/king/region';
-	const fetcher: Fetcher<IRegion[]> = async (url: string) => {
+	const fetcher: Fetcher<IRegion[], string> = async (url) => {
 		const res = await request.get(url);
 		return res.data.data;
 	}

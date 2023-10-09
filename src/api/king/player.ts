@@ -3,7 +3,7 @@ import useSWR, { Fetcher, Key, SWRResponse } from 'swr';
 
 export type IPlayer = {
 	id: string;
-	trainer_id: string;
+	// trainer_id: string;
 	team_num: number;
 	national_num: string;
 	name: string;
@@ -22,8 +22,8 @@ type IUsePlayerUpdate = {
 
 export const usePlayerUpdate: IUsePlayerUpdate = (trainerId, player) => {
 	const key: Key = trainerId ? [`/king/trainer/${trainerId}/player`, player] : null;
-	const fetcher: Fetcher<boolean, [string, IPlayer]> = async ([url, player]) => {
-		const res = await request.put(url, player);
+	const fetcher: Fetcher<boolean, [string, IPlayer]> = async ([url, body]) => {
+		const res = await request.put(url, body);
 		return res.data.data;
 	}
 

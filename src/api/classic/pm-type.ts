@@ -18,7 +18,7 @@ type IUsePmType = {
 
 export const usePmType: IUsePmType = () => {
   const key: Key = '/classic/type';
-  const fetcher: Fetcher<IPmType[]> = async (url: string) => {
+  const fetcher: Fetcher<IPmType[], string> = async (url) => {
     const res = await request.get(url);
     return res.data.data;
   }

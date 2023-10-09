@@ -14,11 +14,11 @@ const PlayerEditor: FC<PlayerEditorPorps> = (props) => {
 	const { visible, target, onClose, onConfirm } = props;
 	const formRef = createRef<FormInstance>();
 	const onFinish = async () => {
-		const submitForm = {
+		const playerForm: IPlayer = {
 			...target,
 			...formRef.current?.getFieldsValue(),
 		}
-		console.log(submitForm);
+		console.log(playerForm);
 	}
 
 	useEffect(() => {

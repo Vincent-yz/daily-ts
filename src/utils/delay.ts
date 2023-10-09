@@ -27,5 +27,4 @@ const useDebounce: IUseDebounce = (fn, delay, dep = []) => {
 	);
 }
 
-
 export { useDebounce };

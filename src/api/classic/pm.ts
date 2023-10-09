@@ -44,7 +44,7 @@ export const usePmList: IUsePmList = (keyword = '', type1 = '', type2 = '', gene
     if (previousPageData && !previousPageData.items.length) return null;
     return `/classic/pokemon?currentPage=${index + 1}&keyword=${keyword}&type1=${type1}&type2=${type2}&generation=${generation}`;
   }
-  const fetcher: Fetcher<IPagination<Pokemon>> = async (url: string) => {
+  const fetcher: Fetcher<IPagination<Pokemon>, string> = async (url) => {
     const res = await request.list<Pokemon>(url);
     return res.data.data;
   }
@@ -57,7 +57,7 @@ export const usePmList: IUsePmList = (keyword = '', type1 = '', type2 = '', gene
 
 export const usePmDetail: IUsePmDetail = (nationalNum) => {
   const key: Key = nationalNum ? `/classic/pokemon/${nationalNum}` : null;
-  const fetcher: Fetcher<Pokemon> = async (url: string) => {
+  const fetcher: Fetcher<Pokemon, string> = async (url) => {
     const res = await request.get(url);
     return res.data.data;
   }
