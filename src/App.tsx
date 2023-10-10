@@ -3,12 +3,12 @@ import { RouterProvider } from 'react-router-dom';
 import routes from '@/router';
 import { SWRConfig } from 'swr';
 
-function App() {
-  const config = {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  }
+const config = {
+  revalidateIfStale: false,
+  revalidateOnFocus: false,
+}
 
+function App() {
   return (
     <SWRConfig value={config}>
       <RouterProvider router={routes} />

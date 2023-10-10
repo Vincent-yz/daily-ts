@@ -1,10 +1,7 @@
 import _len from './locate/locate.en';
 import _lch from './locate/locate.ch';
-
-export enum LOCATE {
-	en = 'English',
-	ch = '中文',
-}
+import LOCATE from './locate';
+import config from '@/config';
 
 type IDicMap = Record<LOCATE, Record<string, string>>;
 
@@ -23,8 +20,8 @@ type ITransfer = {
 class Internationalization {
 	current: LOCATE;
 
-	constructor() {
-		this.current = LOCATE.ch as LOCATE;
+	constructor(locate: LOCATE) {
+		this.current = locate;
 	}
 
 	public get(): LOCATE {
@@ -46,6 +43,6 @@ class Internationalization {
 	}
 }
 
-const i18n = new Internationalization();
+const i18n = new Internationalization(config.locate);
 
 export default i18n;

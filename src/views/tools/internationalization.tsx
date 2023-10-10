@@ -1,5 +1,6 @@
 import React from 'react';
-import i18n, { LOCATE } from '@/utils/i18n';
+import i18n from '@/utils/i18n';
+import LOCATE from '@/utils/locate';
 import { Radio } from 'antd-mobile';
 import useLayoutContext from '@/layout/layout-context';
 

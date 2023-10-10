@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { Toast } from 'antd-mobile';
+import globalConfig from '@/config';
 
 export type IPagination<T> = {
   currentPage: number;
@@ -18,8 +19,7 @@ class Request {
   instance: AxiosInstance;
 
   baseConfig: AxiosRequestConfig = {
-    // baseURL: 'http://localhost:8080',
-    baseURL: 'http://10.11.33.12:8080',
+    baseURL: 'http://localhost:8080',
     withCredentials: false,
     timeout: 30000,
     headers: {
@@ -109,6 +109,8 @@ class Request {
   }
 }
 
-const myRequest = new Request({});
+const myRequest = new Request({
+  baseURL: globalConfig.baseUrl,
+});
 
 export default myRequest;
