@@ -43,15 +43,15 @@ const routes: RouteObject[] = [
   },
   // 详情页，查看关联数据
   {
-    path: "tools/move/:id",
+    path: "tools/move/:key",
     element: <MoveDetail />
   },
   {
-    path: "tools/ability/:id",
+    path: "tools/ability/:key",
     element: <AbilityDetail />
   },
   {
-    path: "tools/egg-group/:id",
+    path: "tools/egg-group/:key",
     element: <EggGroupDetail />
   },
 ];

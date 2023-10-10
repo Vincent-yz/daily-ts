@@ -39,6 +39,10 @@ type IUsePmDetail = {
 	(nationalNum: string | any): SWRResponse<Pokemon>;
 }
 
+type IUseAbilityPmList = {
+  (enName?: string): SWRInfiniteResponse<IPagination<Pokemon>>;
+}
+
 export const usePmList: IUsePmList = (keyword = '', type1 = '', type2 = '', generation = '0') => {
   const key: SWRInfiniteKeyLoader = (index, previousPageData) => {
     if (previousPageData && !previousPageData.items.length) return null;
@@ -63,4 +67,21 @@ export const usePmDetail: IUsePmDetail = (nationalNum) => {
   }
 
   return useSWR(key, fetcher);
+}
+
+export const useAbilityPmList: IUseAbilityPmList = (enName) => {
+  const key: SWRInfiniteKeyLoader = (index, previousPageData) => {
+    if (previousPageData && !previousPageData.items.length) return null;
+    if (!enName) return null;
+    return `/classic/ability/${enName}/pokemon?currentPage=${index + 1}`;
+  }
+  const fetcher: Fetcher<IPagination<Pokemon>, string> = async (url) => {
+    const res = await request.list<Pokemon>(url);
+    return res.data.data;
+  }
+  const config: SWRInfiniteConfiguration = {
+    revalidateFirstPage : false,
+  }
+
+  return useSWRInfinite(key, fetcher, config);
 }
