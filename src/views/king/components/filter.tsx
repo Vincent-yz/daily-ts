@@ -6,7 +6,6 @@ import styles from './filter.module.css';
 
 type IFilterProps = {
 	trainerId: string | any;
-	// 应该有一些筛选回调？
 	onAvailableTeamChange: (teams: number[]) => void;
 }
 
