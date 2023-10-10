@@ -105,9 +105,9 @@ const PokeIndex: FC = () => {
         </Dropdown>
       </div>
       <div className={styles.content}>
-        {pmList.map((page, index) => {
-          return <PokePage key={index} data={page.items} />
-        })}
+        {pmList.map((page, index) =>
+          <PokePage key={index} data={page.items} />
+        )}
         <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
       </div>
     </div>
