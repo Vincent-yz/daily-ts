@@ -4,6 +4,7 @@ import { usePmDetail } from '@/api/classic';
 import useLayoutContext from '@/layout/layout-context';
 import i18n from '@/utils/i18n';
 import PmType from '@/components/pm-type';
+import PmAbility from '@/components/pm-ability';
 import Gender from './components/gender';
 import TypeDefense from './components/type-defense';
 import Block from '@/components/block';
@@ -42,11 +43,17 @@ const PokeIndex: FC = () => {
       <Block title="">
         <Grid columns={4}>
           <Grid.Item span={1}>{i18n.transfer('ability')}</Grid.Item>
-          <Grid.Item span={3}>{data.ability1}</Grid.Item>
+          <Grid.Item span={3}>
+            <PmAbility enName={data.ability1} />
+          </Grid.Item>
           <Grid.Item span={1}></Grid.Item>
-          <Grid.Item span={3}>{data.ability2}</Grid.Item>
+          <Grid.Item span={3}>
+            <PmAbility enName={data.ability2} />
+          </Grid.Item>
           <Grid.Item span={1}></Grid.Item>
-          <Grid.Item span={3}>{data.ability3}</Grid.Item>
+          <Grid.Item span={3}>
+            <PmAbility enName={data.ability3} />
+          </Grid.Item>
 
           <Grid.Item span={1}>{i18n.transfer('egg group')}</Grid.Item>
           <Grid.Item span={3}>

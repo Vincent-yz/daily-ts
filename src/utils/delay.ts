@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react';
 
 type IDebounce = {
-	(fn: Function, delay: number): Function;
+	(fn: Function, delay: number): (...args: any[]) => void;
 }
 
 const debounce: IDebounce = (fn, delay) => {
@@ -15,7 +15,7 @@ const debounce: IDebounce = (fn, delay) => {
 }
 
 type IUseDebounce = {
-	(fn: Function, delay: number, dep: any[]): void;
+	(fn: Function, delay: number, dep?: any[]): (...args: any[]) => void;
 }
 
 const useDebounce: IUseDebounce = (fn, delay, dep = []) => {

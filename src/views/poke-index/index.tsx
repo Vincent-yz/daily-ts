@@ -7,9 +7,11 @@ import styles from './index.module.css';
 import generationSelectorOptions from './gen-options';
 import i18n from '@/utils/i18n';
 import useLayoutContext from '@/layout/layout-context';
+import { useDebounce } from '@/utils/delay';
 
 const PokeIndex: FC = () => {
   // 初始化状态
+  const [displayKeyword, setDisplayKeyword] = useState<string>('');
   const [keyword, setKeyword] = useState<string>('');
   const [type, setType] = useState<string[]>([]);
   const [generation, setGeneration] = useState<string>('0');
@@ -40,9 +42,10 @@ const PokeIndex: FC = () => {
     }
   }
 
-  // todo ...
+  const setDebounceKeyword = useDebounce((val: string) => setKeyword(val), 1000);
   const setMixKeyword = (val: string) => {
-    setKeyword(val);
+    setDisplayKeyword(val);
+    setDebounceKeyword(val);
   }
 
   const setMixType = (val:string[]) => {
@@ -61,6 +64,7 @@ const PokeIndex: FC = () => {
 
   const reset = () => {
     setHasMore(true);
+    setDisplayKeyword('');
     setKeyword('');
     setType([]);
     setGeneration('0');
@@ -70,7 +74,7 @@ const PokeIndex: FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.search}>
-          <SearchBar value={keyword} onChange={setMixKeyword} />
+          <SearchBar value={displayKeyword} onChange={setMixKeyword} />
         </div>
         <Dropdown ref={ref} className={styles.filter}>
           <Dropdown.Item key="pm_condition" title={i18n.transfer('filter')} arrow={<FilterOutline />}>
