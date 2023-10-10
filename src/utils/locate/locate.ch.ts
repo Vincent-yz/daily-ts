@@ -1,10 +1,17 @@
 const dic: Record<string, string> = {
   'poke-index': '全国图鉴',
+  'filter': '筛选',
   'Type': '属性',
   'king': '天王',
   'raising': '培育',
   'battle': '模拟',
   'tools': '工具',
+  'ability': '特性',
+  'egg group': '蛋组',
+  'move': '招式',
+  'base stats': '种族值',
+  'type defense': '抗性',
+  'evolution': '进化',
   'male': '雄性',
   'female': '雌性',
   'Gen': '世代',
@@ -13,6 +20,14 @@ const dic: Record<string, string> = {
   'Gen3': '第3世代',
   'Gen4': '第4世代',
   'Gen5': '第5世代',
+  'language': '语言',
+  'type-effect': '属性克制',
+  'nature-effect': '性格修正',
+  'move-list': '招式查询',
+  'ability-list': '特性查询',
+  'egg-group-list': '蛋组查询',
+  'item-list': '道具查询',
+  'data-sync': '数据同步',
 }
 
 export default dic;

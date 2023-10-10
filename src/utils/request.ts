@@ -46,9 +46,12 @@ class Request {
         // 这里是请求层的，包括header等参数
         // const res = response.data;
         // 处理服务端的框架响应code/message等
-        // if (res.data !== undefined) {
-        //   return res.data;
-        // }
+        if (response.data.code !== 0) {
+          Toast.show({
+            icon: 'fail',
+            content: `请求失败:${response.data.message}`,
+          });
+        }
 
         return response;
       },

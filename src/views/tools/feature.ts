@@ -5,31 +5,31 @@ type ITool = {
 
 const ToolItem:ITool[] = [
   {
-    title: '属性克制',
+    title: 'type-effect',
     key: '/tools/type',
   },
   {
-    title: '性格修正',
+    title: 'nature-effect',
     key: '/tools/nature',
   },
   {
-    title: '招式查询',
+    title: 'move-list',
     key: '/tools/move',
   },
   {
-    title: '特性查询',
+    title: 'ability-list',
     key: '/tools/ability',
   },
   {
-    title: '蛋组查询',
+    title: 'egg-group-list',
     key: '/tools/egg-group',
   },
   {
-    title: '道具查询',
+    title: 'item-list',
     key: '/tools/held-item',
   },
   {
-    title: '数据同步',
+    title: 'data-sync',
     key: '/tools/data-sync',
   },
 ]

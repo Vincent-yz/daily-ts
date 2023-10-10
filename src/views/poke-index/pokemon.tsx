@@ -41,25 +41,25 @@ const PokeIndex: FC = () => {
 
       <Block title="">
         <Grid columns={4}>
-          <Grid.Item span={1}>ability</Grid.Item>
+          <Grid.Item span={1}>{i18n.transfer('ability')}</Grid.Item>
           <Grid.Item span={3}>{data.ability1}</Grid.Item>
           <Grid.Item span={1}></Grid.Item>
           <Grid.Item span={3}>{data.ability2}</Grid.Item>
           <Grid.Item span={1}></Grid.Item>
           <Grid.Item span={3}>{data.ability3}</Grid.Item>
 
-          <Grid.Item span={1}>egg group</Grid.Item>
+          <Grid.Item span={1}>{i18n.transfer('egg group')}</Grid.Item>
           <Grid.Item span={3}>
             <div>eggGroup</div>
           </Grid.Item>
         </Grid>
       </Block>
 
-      <Block title={"move"}>
-        <div onClick={() => navigate('move')}>move</div>
+      <Block title={i18n.transfer("move")}>
+        <div onClick={() => navigate('move')}>{i18n.transfer('move')}</div>
       </Block>
 
-      <Block title={"base stats"}>
+      <Block title={i18n.transfer("base stats")}>
         <Grid columns={4}>
           <Grid.Item span={1}>hp</Grid.Item>
           <Grid.Item span={3}>{data.base_stats.hp}</Grid.Item>
@@ -78,11 +78,11 @@ const PokeIndex: FC = () => {
         </Grid>
       </Block>
 
-      <Block title={"type defense"}>
+      <Block title={i18n.transfer("type defense")}>
         <TypeDefense typeIds={[data.type1, data.type2]} />
       </Block>
 
-      <Block title={"evolution"}>
+      <Block title={i18n.transfer("evolution")}>
         <div>
           evolution
         </div>

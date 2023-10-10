@@ -73,7 +73,7 @@ const PokeIndex: FC = () => {
           <SearchBar value={keyword} onChange={setMixKeyword} />
         </div>
         <Dropdown ref={ref} className={styles.filter}>
-          <Dropdown.Item key="pm_condition" title="筛选" arrow={<FilterOutline />}>
+          <Dropdown.Item key="pm_condition" title={i18n.transfer('filter')} arrow={<FilterOutline />}>
             <div className={styles.dropdown}>
               <div>{i18n.transfer('Type')}（最多选择两项）</div>
               <Selector
@@ -92,7 +92,7 @@ const PokeIndex: FC = () => {
                 onChange={setMixGen}
                 style={{'--padding': '8px'}}
               />
-              <Space>
+              <Space block justify="center">
                 <Button color="default" onClick={reset}>清空</Button>
                 <Button color="primary" onClick={() => ref.current?.close()}>确认</Button>
               </Space>
