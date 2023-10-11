@@ -52,7 +52,7 @@ const PokeIndex: FC = () => {
           </Grid.Item>
           <Grid.Item span={1}></Grid.Item>
           <Grid.Item span={3}>
-            <PmAbility enName={data.ability3} />
+            <PmAbility enName={data.ability3} hidden />
           </Grid.Item>
 
           <Grid.Item span={1}>{i18n.transfer('egg group')}</Grid.Item>

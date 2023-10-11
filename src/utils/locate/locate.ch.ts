@@ -7,6 +7,7 @@ const dic: Record<string, string> = {
   'battle': '模拟',
   'tools': '工具',
   'ability': '特性',
+  'hidden-ability': '隐藏特性',
   'egg group': '蛋组',
   'move': '招式',
   'base stats': '种族值',
