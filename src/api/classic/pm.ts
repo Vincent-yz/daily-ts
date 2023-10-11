@@ -53,7 +53,7 @@ export const usePmList: IUsePmList = (keyword = '', type1 = '', type2 = '', gene
     return res.data.data;
   }
   const config: SWRInfiniteConfiguration = {
-    revalidateFirstPage : false,
+    revalidateFirstPage: false,
   }
 
   return useSWRInfinite(key, fetcher, config);

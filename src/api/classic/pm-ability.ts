@@ -14,10 +14,6 @@ type IUsePmAbility = {
   (enName?: string): SWRResponse<IPmAbility>
 }
 
-type IUseAbility = {
-
-}
-
 type IUseAbilityList = {
   (keyword: string): SWRInfiniteResponse<IPagination<IPmAbility>>;
 }

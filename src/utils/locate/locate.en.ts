@@ -7,6 +7,7 @@ const dic: Record<string, string> = {
   'battle': 'battle',
   'tools': 'tools',
   'ability': 'ability',
+  'hidden-ability': 'hidden',
   'egg group': 'egg group',
   'move': 'move',
   'base stats': 'base stats',
