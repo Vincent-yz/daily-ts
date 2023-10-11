@@ -3,7 +3,7 @@
 display:inline-block;
 width:56px;
 height:56px;
-background:url(//10.11.74.37:3000/MSP_Normal.webp) 9999px 9999px no-repeat;
+background:url(//localhost:3000/MSP_Normal.webp) 9999px 9999px no-repeat;
 vertical-align:middle;
 background-size:2240px 2184px;
 }
@@ -11,7 +11,7 @@ background-size:2240px 2184px;
 display:inline-block;
 width:56px;
 height:56px;
-background:url(//10.11.74.37:3000/MSP_Shiny.webp) 9999px 9999px no-repeat;
+background:url(//localhost:3000/MSP_Shiny.webp) 9999px 9999px no-repeat;
 vertical-align:middle;
 background-size:2240px 2184px;
 }
@@ -51,10 +51,10 @@ background-position:-560px 0px
 .sprite-icon-006,.sprite-icon-0006{
   background-position:-672px 0px
 }
-.sprite-icon-006MX,.sprite-icon-0006MX{
+.sprite-icon-006MY,.sprite-icon-0006MY{
   background-position:-784px 0px
 }
-.sprite-icon-006MY,.sprite-icon-0006MY{
+  .sprite-icon-006MX,.sprite-icon-0006MX{
   background-position:-728px 0px
 }
 .sprite-icon-006GM,.sprite-icon-0006GM{
@@ -150,7 +150,7 @@ background-position:-168px -56px
 .sprite-icon-025F,.sprite-icon-0025F{
 background-position:-224px -56px
 }
-.sprite-icon-025Co,.sprite-icon-0025Co{
+.sprite-icon-025GM,.sprite-icon-0025GM{
 background-position:-280px -56px
 }
 .sprite-icon-025Po,.sprite-icon-0025Po{
@@ -192,9 +192,9 @@ background-position:-952px -56px
 .sprite-icon-025W,.sprite-icon-0025W{
 background-position:-1008px -56px
 }
-.sprite-icon-025GM,.sprite-icon-0025GM{
+/* .sprite-icon-025GM,.sprite-icon-0025GM{
 background-position:-1064px -56px
-}
+} */
 .sprite-icon-025Pa,.sprite-icon-0025Pa{
 background-position:-1120px -56px
 }
@@ -315,16 +315,16 @@ background-position:-1008px -112px
 .sprite-icon-051A,.sprite-icon-0051A{
 background-position:-1064px -112px
 }
+.sprite-icon-052GM,.sprite-icon-0052GM{
+  background-position:-1120px -112px
+}
 .sprite-icon-052,.sprite-icon-0052{
   background-position:-1176px -112px
 }
 .sprite-icon-052A,.sprite-icon-0052A{
-  background-position:-1120px -112px
-}
-.sprite-icon-052G,.sprite-icon-0052G{
 background-position:-1232px -112px
 }
-.sprite-icon-052GM,.sprite-icon-0052GM{
+.sprite-icon-052G,.sprite-icon-0052G{
 background-position:-1288px -112px
 }
 .sprite-icon-053,.sprite-icon-0053{
@@ -516,10 +516,10 @@ background-position:-224px -224px
 .sprite-icon-094,.sprite-icon-0094{
   background-position:-336px -224px
 }
-.sprite-icon-094M,.sprite-icon-0094M{
+.sprite-icon-094GM,.sprite-icon-0094GM{
   background-position:-280px -224px
 }
-.sprite-icon-094GM,.sprite-icon-0094GM{
+.sprite-icon-094M,.sprite-icon-0094M{
 background-position:-392px -224px
 }
 .sprite-icon-095,.sprite-icon-0095{
@@ -2054,907 +2054,907 @@ background-position:-1848px -896px
 .sprite-icon-440,.sprite-icon-0440{
 background-position:-1904px -896px
 }
-.sprite-icon-435,.sprite-icon-0435{
+.sprite-icon-441,.sprite-icon-0441{
 background-position:-1960px -896px
 }
-.sprite-icon-436,.sprite-icon-0436{
+.sprite-icon-442,.sprite-icon-0442{
 background-position:-2016px -896px
 }
-.sprite-icon-437,.sprite-icon-0437{
+.sprite-icon-443,.sprite-icon-0443{
 background-position:-2072px -896px
 }
-.sprite-icon-438,.sprite-icon-0438{
+.sprite-icon-443F,.sprite-icon-0443F{
 background-position:-2128px -896px
 }
-.sprite-icon-439,.sprite-icon-0439{
+.sprite-icon-444,.sprite-icon-0444{
 background-position:-2184px -896px
 }
-.sprite-icon-440,.sprite-icon-0440{
+.sprite-icon-444F,.sprite-icon-0444F{
 background-position:0px -952px
 }
-.sprite-icon-441,.sprite-icon-0441{
+.sprite-icon-445,.sprite-icon-0445{
 background-position:-56px -952px
 }
-.sprite-icon-442,.sprite-icon-0442{
+.sprite-icon-445F,.sprite-icon-0445F{
 background-position:-112px -952px
 }
-.sprite-icon-443,.sprite-icon-0443{
+.sprite-icon-445M,.sprite-icon-0445M{
 background-position:-168px -952px
 }
-.sprite-icon-443F,.sprite-icon-0443F{
+.sprite-icon-446,.sprite-icon-0446{
 background-position:-224px -952px
 }
-.sprite-icon-444,.sprite-icon-0444{
+.sprite-icon-447,.sprite-icon-0447{
 background-position:-280px -952px
 }
-.sprite-icon-444F,.sprite-icon-0444F{
+.sprite-icon-448,.sprite-icon-0448{
 background-position:-336px -952px
 }
-.sprite-icon-445,.sprite-icon-0445{
+.sprite-icon-448M,.sprite-icon-0448M{
 background-position:-392px -952px
 }
-.sprite-icon-445F,.sprite-icon-0445F{
+.sprite-icon-449,.sprite-icon-0449{
 background-position:-448px -952px
 }
-.sprite-icon-445M,.sprite-icon-0445M{
+.sprite-icon-449F,.sprite-icon-0449F{
 background-position:-504px -952px
 }
-.sprite-icon-446,.sprite-icon-0446{
+.sprite-icon-450,.sprite-icon-0450{
 background-position:-560px -952px
 }
-.sprite-icon-447,.sprite-icon-0447{
+.sprite-icon-450F,.sprite-icon-0450F{
 background-position:-616px -952px
 }
-.sprite-icon-448,.sprite-icon-0448{
+.sprite-icon-451,.sprite-icon-0451{
 background-position:-672px -952px
 }
-.sprite-icon-448M,.sprite-icon-0448M{
+.sprite-icon-452,.sprite-icon-0452{
 background-position:-728px -952px
 }
-.sprite-icon-449,.sprite-icon-0449{
+.sprite-icon-453,.sprite-icon-0453{
 background-position:-784px -952px
 }
-.sprite-icon-449F,.sprite-icon-0449F{
+.sprite-icon-453F,.sprite-icon-0453F{
 background-position:-840px -952px
 }
-.sprite-icon-450,.sprite-icon-0450{
+.sprite-icon-454,.sprite-icon-0454{
 background-position:-896px -952px
 }
-.sprite-icon-450F,.sprite-icon-0450F{
+.sprite-icon-454F,.sprite-icon-0454F{
 background-position:-952px -952px
 }
-.sprite-icon-451,.sprite-icon-0451{
+.sprite-icon-455,.sprite-icon-0455{
 background-position:-1008px -952px
 }
-.sprite-icon-452,.sprite-icon-0452{
+.sprite-icon-456,.sprite-icon-0456{
 background-position:-1064px -952px
 }
-.sprite-icon-453,.sprite-icon-0453{
+.sprite-icon-456F,.sprite-icon-0456F{
 background-position:-1120px -952px
 }
-.sprite-icon-453F,.sprite-icon-0453F{
+.sprite-icon-457,.sprite-icon-0457{
 background-position:-1176px -952px
 }
-.sprite-icon-454,.sprite-icon-0454{
+.sprite-icon-457F,.sprite-icon-0457F{
 background-position:-1232px -952px
 }
-.sprite-icon-454F,.sprite-icon-0454F{
+.sprite-icon-458,.sprite-icon-0458{
 background-position:-1288px -952px
 }
-.sprite-icon-455,.sprite-icon-0455{
+.sprite-icon-459,.sprite-icon-0459{
 background-position:-1344px -952px
 }
-.sprite-icon-456,.sprite-icon-0456{
+.sprite-icon-459F,.sprite-icon-0459F{
 background-position:-1400px -952px
 }
-.sprite-icon-456F,.sprite-icon-0456F{
+.sprite-icon-460,.sprite-icon-0460{
 background-position:-1456px -952px
 }
-.sprite-icon-457,.sprite-icon-0457{
+.sprite-icon-460F,.sprite-icon-0460F{
 background-position:-1512px -952px
 }
-.sprite-icon-457F,.sprite-icon-0457F{
+.sprite-icon-460M,.sprite-icon-0460M{
 background-position:-1568px -952px
 }
-.sprite-icon-458,.sprite-icon-0458{
+.sprite-icon-461,.sprite-icon-0461{
 background-position:-1624px -952px
 }
-.sprite-icon-459,.sprite-icon-0459{
+.sprite-icon-461F,.sprite-icon-0461F{
 background-position:-1680px -952px
 }
-.sprite-icon-459F,.sprite-icon-0459F{
+.sprite-icon-462,.sprite-icon-0462{
 background-position:-1736px -952px
 }
-.sprite-icon-460,.sprite-icon-0460{
+.sprite-icon-463,.sprite-icon-0463{
 background-position:-1792px -952px
 }
-.sprite-icon-460F,.sprite-icon-0460F{
+.sprite-icon-464,.sprite-icon-0464{
 background-position:-1848px -952px
 }
-.sprite-icon-460M,.sprite-icon-0460M{
+.sprite-icon-464F,.sprite-icon-0464F{
 background-position:-1904px -952px
 }
-.sprite-icon-461,.sprite-icon-0461{
+.sprite-icon-465,.sprite-icon-0465{
 background-position:-1960px -952px
 }
-.sprite-icon-461F,.sprite-icon-0461F{
+.sprite-icon-465F,.sprite-icon-0465F{
 background-position:-2016px -952px
 }
-.sprite-icon-462,.sprite-icon-0462{
+.sprite-icon-466,.sprite-icon-0466{
 background-position:-2072px -952px
 }
-.sprite-icon-463,.sprite-icon-0463{
+.sprite-icon-467,.sprite-icon-0467{
 background-position:-2128px -952px
 }
-.sprite-icon-464,.sprite-icon-0464{
+.sprite-icon-468,.sprite-icon-0468{
 background-position:-2184px -952px
 }
-.sprite-icon-464F,.sprite-icon-0464F{
+.sprite-icon-469,.sprite-icon-0469{
 background-position:0px -1008px
 }
-.sprite-icon-465,.sprite-icon-0465{
+.sprite-icon-470,.sprite-icon-0470{
 background-position:-56px -1008px
 }
-.sprite-icon-465F,.sprite-icon-0465F{
+.sprite-icon-471,.sprite-icon-0471{
 background-position:-112px -1008px
 }
-.sprite-icon-466,.sprite-icon-0466{
+.sprite-icon-472,.sprite-icon-0472{
 background-position:-168px -1008px
 }
-.sprite-icon-467,.sprite-icon-0467{
+.sprite-icon-473,.sprite-icon-0473{
 background-position:-224px -1008px
 }
-.sprite-icon-468,.sprite-icon-0468{
+.sprite-icon-473F,.sprite-icon-0473F{
 background-position:-280px -1008px
 }
-.sprite-icon-469,.sprite-icon-0469{
+.sprite-icon-474,.sprite-icon-0474{
 background-position:-336px -1008px
 }
-.sprite-icon-470,.sprite-icon-0470{
+.sprite-icon-475,.sprite-icon-0475{
 background-position:-392px -1008px
 }
-.sprite-icon-471,.sprite-icon-0471{
+.sprite-icon-475M,.sprite-icon-0475M{
 background-position:-448px -1008px
 }
-.sprite-icon-472,.sprite-icon-0472{
+.sprite-icon-476,.sprite-icon-0476{
 background-position:-504px -1008px
 }
-.sprite-icon-473,.sprite-icon-0473{
+.sprite-icon-477,.sprite-icon-0477{
 background-position:-560px -1008px
 }
-.sprite-icon-473F,.sprite-icon-0473F{
+.sprite-icon-478,.sprite-icon-0478{
 background-position:-616px -1008px
 }
-.sprite-icon-474,.sprite-icon-0474{
+.sprite-icon-479,.sprite-icon-0479{
 background-position:-672px -1008px
 }
-.sprite-icon-475,.sprite-icon-0475{
+.sprite-icon-479H,.sprite-icon-0479H{
 background-position:-728px -1008px
 }
-.sprite-icon-475M,.sprite-icon-0475M{
+.sprite-icon-479W,.sprite-icon-0479W{
 background-position:-784px -1008px
 }
-.sprite-icon-476,.sprite-icon-0476{
+.sprite-icon-479F,.sprite-icon-0479F{
 background-position:-840px -1008px
 }
-.sprite-icon-477,.sprite-icon-0477{
+.sprite-icon-479Fa,.sprite-icon-0479Fa{
 background-position:-896px -1008px
 }
-.sprite-icon-478,.sprite-icon-0478{
+.sprite-icon-479M,.sprite-icon-0479M{
 background-position:-952px -1008px
 }
-.sprite-icon-479,.sprite-icon-0479{
+.sprite-icon-480,.sprite-icon-0480{
 background-position:-1008px -1008px
 }
-.sprite-icon-479H,.sprite-icon-0479H{
+.sprite-icon-481,.sprite-icon-0481{
 background-position:-1064px -1008px
 }
-.sprite-icon-479W,.sprite-icon-0479W{
+.sprite-icon-482,.sprite-icon-0482{
 background-position:-1120px -1008px
 }
-.sprite-icon-479F,.sprite-icon-0479F{
+.sprite-icon-483,.sprite-icon-0483{
 background-position:-1176px -1008px
 }
-.sprite-icon-479Fa,.sprite-icon-0479Fa{
+.sprite-icon-483O,.sprite-icon-0483O{
 background-position:-1232px -1008px
 }
-.sprite-icon-479M,.sprite-icon-0479M{
+.sprite-icon-484,.sprite-icon-0484{
 background-position:-1288px -1008px
 }
-.sprite-icon-480,.sprite-icon-0480{
+.sprite-icon-484O,.sprite-icon-0484O{
 background-position:-1344px -1008px
 }
-.sprite-icon-481,.sprite-icon-0481{
+.sprite-icon-485,.sprite-icon-0485{
 background-position:-1400px -1008px
 }
-.sprite-icon-482,.sprite-icon-0482{
+.sprite-icon-486,.sprite-icon-0486{
 background-position:-1456px -1008px
 }
-.sprite-icon-483,.sprite-icon-0483{
+.sprite-icon-487,.sprite-icon-0487{
 background-position:-1512px -1008px
 }
-.sprite-icon-483O,.sprite-icon-0483O{
+.sprite-icon-487O,.sprite-icon-0487O{
 background-position:-1568px -1008px
 }
-.sprite-icon-484,.sprite-icon-0484{
+.sprite-icon-488,.sprite-icon-0488{
 background-position:-1624px -1008px
 }
-.sprite-icon-484O,.sprite-icon-0484O{
+.sprite-icon-489,.sprite-icon-0489{
 background-position:-1680px -1008px
 }
-.sprite-icon-485,.sprite-icon-0485{
+.sprite-icon-490,.sprite-icon-0490{
 background-position:-1736px -1008px
 }
-.sprite-icon-486,.sprite-icon-0486{
+.sprite-icon-491,.sprite-icon-0491{
 background-position:-1792px -1008px
 }
-.sprite-icon-487,.sprite-icon-0487{
+.sprite-icon-492,.sprite-icon-0492{
 background-position:-1848px -1008px
 }
-.sprite-icon-487O,.sprite-icon-0487O{
+.sprite-icon-492S,.sprite-icon-0492S{
 background-position:-1904px -1008px
 }
-.sprite-icon-488,.sprite-icon-0488{
+.sprite-icon-493,.sprite-icon-0493{
 background-position:-1960px -1008px
 }
-.sprite-icon-489,.sprite-icon-0489{
+.sprite-icon-493Fig,.sprite-icon-0493Fig{
 background-position:-2016px -1008px
 }
-.sprite-icon-490,.sprite-icon-0490{
+.sprite-icon-493Fly,.sprite-icon-0493Fly{
 background-position:-2072px -1008px
 }
-.sprite-icon-491,.sprite-icon-0491{
+.sprite-icon-493Poi,.sprite-icon-0493Poi{
 background-position:-2128px -1008px
 }
-.sprite-icon-492,.sprite-icon-0492{
+.sprite-icon-493Gro,.sprite-icon-0493Gro{
 background-position:-2184px -1008px
 }
-.sprite-icon-492S,.sprite-icon-0492S{
+.sprite-icon-493Roc,.sprite-icon-0493Roc{
 background-position:0px -1064px
 }
-.sprite-icon-493,.sprite-icon-0493{
+.sprite-icon-493Bug,.sprite-icon-0493Bug{
 background-position:-56px -1064px
 }
-.sprite-icon-493Fig,.sprite-icon-0493Fig{
+.sprite-icon-493Gho,.sprite-icon-0493Gho{
 background-position:-112px -1064px
 }
-.sprite-icon-493Fly,.sprite-icon-0493Fly{
+.sprite-icon-493Ste,.sprite-icon-0493Ste{
 background-position:-168px -1064px
 }
-.sprite-icon-493Poi,.sprite-icon-0493Poi{
+.sprite-icon-493Fir,.sprite-icon-0493Fir{
 background-position:-224px -1064px
 }
-.sprite-icon-493Gro,.sprite-icon-0493Gro{
+.sprite-icon-493Wat,.sprite-icon-0493Wat{
 background-position:-280px -1064px
 }
-.sprite-icon-493Roc,.sprite-icon-0493Roc{
+.sprite-icon-493Gra,.sprite-icon-0493Gra{
 background-position:-336px -1064px
 }
-.sprite-icon-493Bug,.sprite-icon-0493Bug{
+.sprite-icon-493Ele,.sprite-icon-0493Ele{
 background-position:-392px -1064px
 }
-.sprite-icon-493Gho,.sprite-icon-0493Gho{
+.sprite-icon-493Psy,.sprite-icon-0493Psy{
 background-position:-448px -1064px
 }
-.sprite-icon-493Ste,.sprite-icon-0493Ste{
+.sprite-icon-493Ice,.sprite-icon-0493Ice{
 background-position:-504px -1064px
 }
-.sprite-icon-493Fir,.sprite-icon-0493Fir{
+.sprite-icon-493Dra,.sprite-icon-0493Dra{
 background-position:-560px -1064px
 }
-.sprite-icon-493Wat,.sprite-icon-0493Wat{
+.sprite-icon-493Dar,.sprite-icon-0493Dar{
 background-position:-616px -1064px
 }
-.sprite-icon-493Gra,.sprite-icon-0493Gra{
+.sprite-icon-493Fai,.sprite-icon-0493Fai{
 background-position:-672px -1064px
 }
-.sprite-icon-493Ele,.sprite-icon-0493Ele{
+.sprite-icon-494,.sprite-icon-0494{
 background-position:-728px -1064px
 }
-.sprite-icon-493Psy,.sprite-icon-0493Psy{
+.sprite-icon-495,.sprite-icon-0495{
 background-position:-784px -1064px
 }
-.sprite-icon-493Ice,.sprite-icon-0493Ice{
+.sprite-icon-496,.sprite-icon-0496{
 background-position:-840px -1064px
 }
-.sprite-icon-493Dra,.sprite-icon-0493Dra{
+.sprite-icon-497,.sprite-icon-0497{
 background-position:-896px -1064px
 }
-.sprite-icon-493Dar,.sprite-icon-0493Dar{
+.sprite-icon-498,.sprite-icon-0498{
 background-position:-952px -1064px
 }
-.sprite-icon-493Fai,.sprite-icon-0493Fai{
+.sprite-icon-499,.sprite-icon-0499{
 background-position:-1008px -1064px
 }
-.sprite-icon-494,.sprite-icon-0494{
+.sprite-icon-500,.sprite-icon-0500{
 background-position:-1064px -1064px
 }
-.sprite-icon-495,.sprite-icon-0495{
+.sprite-icon-501,.sprite-icon-0501{
 background-position:-1120px -1064px
 }
-.sprite-icon-496,.sprite-icon-0496{
+.sprite-icon-502,.sprite-icon-0502{
 background-position:-1176px -1064px
 }
-.sprite-icon-497,.sprite-icon-0497{
+.sprite-icon-503,.sprite-icon-0503{
 background-position:-1232px -1064px
 }
-.sprite-icon-498,.sprite-icon-0498{
+.sprite-icon-503H,.sprite-icon-0503H{
 background-position:-1288px -1064px
 }
-.sprite-icon-499,.sprite-icon-0499{
+.sprite-icon-504,.sprite-icon-0504{
 background-position:-1344px -1064px
 }
-.sprite-icon-500,.sprite-icon-0500{
+.sprite-icon-505,.sprite-icon-0505{
 background-position:-1400px -1064px
 }
-.sprite-icon-501,.sprite-icon-0501{
+.sprite-icon-506,.sprite-icon-0506{
 background-position:-1456px -1064px
 }
-.sprite-icon-502,.sprite-icon-0502{
+.sprite-icon-507,.sprite-icon-0507{
 background-position:-1512px -1064px
 }
-.sprite-icon-503,.sprite-icon-0503{
+.sprite-icon-508,.sprite-icon-0508{
 background-position:-1568px -1064px
 }
-.sprite-icon-503H,.sprite-icon-0503H{
+.sprite-icon-509,.sprite-icon-0509{
 background-position:-1624px -1064px
 }
-.sprite-icon-504,.sprite-icon-0504{
+.sprite-icon-510,.sprite-icon-0510{
 background-position:-1680px -1064px
 }
-.sprite-icon-505,.sprite-icon-0505{
+.sprite-icon-511,.sprite-icon-0511{
 background-position:-1736px -1064px
 }
-.sprite-icon-506,.sprite-icon-0506{
+.sprite-icon-512,.sprite-icon-0512{
 background-position:-1792px -1064px
 }
-.sprite-icon-507,.sprite-icon-0507{
+.sprite-icon-513,.sprite-icon-0513{
 background-position:-1848px -1064px
 }
-.sprite-icon-508,.sprite-icon-0508{
+.sprite-icon-514,.sprite-icon-0514{
 background-position:-1904px -1064px
 }
-.sprite-icon-509,.sprite-icon-0509{
+.sprite-icon-515,.sprite-icon-0515{
 background-position:-1960px -1064px
 }
-.sprite-icon-510,.sprite-icon-0510{
+.sprite-icon-516,.sprite-icon-0516{
 background-position:-2016px -1064px
 }
-.sprite-icon-511,.sprite-icon-0511{
+.sprite-icon-517,.sprite-icon-0517{
 background-position:-2072px -1064px
 }
-.sprite-icon-512,.sprite-icon-0512{
+.sprite-icon-518,.sprite-icon-0518{
 background-position:-2128px -1064px
 }
-.sprite-icon-513,.sprite-icon-0513{
+.sprite-icon-519,.sprite-icon-0519{
 background-position:-2184px -1064px
 }
-.sprite-icon-514,.sprite-icon-0514{
+.sprite-icon-520,.sprite-icon-0520{
 background-position:0px -1120px
 }
-.sprite-icon-515,.sprite-icon-0515{
+.sprite-icon-521,.sprite-icon-0521{
 background-position:-56px -1120px
 }
-.sprite-icon-516,.sprite-icon-0516{
+.sprite-icon-521F,.sprite-icon-0521F{
 background-position:-112px -1120px
 }
-.sprite-icon-517,.sprite-icon-0517{
+.sprite-icon-522,.sprite-icon-0522{
 background-position:-168px -1120px
 }
-.sprite-icon-518,.sprite-icon-0518{
+.sprite-icon-523,.sprite-icon-0523{
 background-position:-224px -1120px
 }
-.sprite-icon-519,.sprite-icon-0519{
+.sprite-icon-524,.sprite-icon-0524{
 background-position:-280px -1120px
 }
-.sprite-icon-520,.sprite-icon-0520{
+.sprite-icon-525,.sprite-icon-0525{
 background-position:-336px -1120px
 }
-.sprite-icon-521,.sprite-icon-0521{
+.sprite-icon-526,.sprite-icon-0526{
 background-position:-392px -1120px
 }
-.sprite-icon-521F,.sprite-icon-0521F{
+.sprite-icon-527,.sprite-icon-0527{
 background-position:-448px -1120px
 }
-.sprite-icon-522,.sprite-icon-0522{
+.sprite-icon-528,.sprite-icon-0528{
 background-position:-504px -1120px
 }
-.sprite-icon-523,.sprite-icon-0523{
+.sprite-icon-529,.sprite-icon-0529{
 background-position:-560px -1120px
 }
-.sprite-icon-524,.sprite-icon-0524{
+.sprite-icon-530,.sprite-icon-0530{
 background-position:-616px -1120px
 }
-.sprite-icon-525,.sprite-icon-0525{
+.sprite-icon-531,.sprite-icon-0531{
 background-position:-672px -1120px
 }
-.sprite-icon-526,.sprite-icon-0526{
+.sprite-icon-531M,.sprite-icon-0531M{
 background-position:-728px -1120px
 }
-.sprite-icon-527,.sprite-icon-0527{
+.sprite-icon-532,.sprite-icon-0532{
 background-position:-784px -1120px
 }
-.sprite-icon-528,.sprite-icon-0528{
+.sprite-icon-533,.sprite-icon-0533{
 background-position:-840px -1120px
 }
-.sprite-icon-529,.sprite-icon-0529{
+.sprite-icon-534,.sprite-icon-0534{
 background-position:-896px -1120px
 }
-.sprite-icon-530,.sprite-icon-0530{
+.sprite-icon-535,.sprite-icon-0535{
 background-position:-952px -1120px
 }
-.sprite-icon-531,.sprite-icon-0531{
+.sprite-icon-536,.sprite-icon-0536{
 background-position:-1008px -1120px
 }
-.sprite-icon-531M,.sprite-icon-0531M{
+.sprite-icon-537,.sprite-icon-0537{
 background-position:-1064px -1120px
 }
-.sprite-icon-532,.sprite-icon-0532{
+.sprite-icon-538,.sprite-icon-0538{
 background-position:-1120px -1120px
 }
-.sprite-icon-533,.sprite-icon-0533{
+.sprite-icon-539,.sprite-icon-0539{
 background-position:-1176px -1120px
 }
-.sprite-icon-534,.sprite-icon-0534{
+.sprite-icon-540,.sprite-icon-0540{
 background-position:-1232px -1120px
 }
-.sprite-icon-535,.sprite-icon-0535{
+.sprite-icon-541,.sprite-icon-0541{
 background-position:-1288px -1120px
 }
-.sprite-icon-536,.sprite-icon-0536{
+.sprite-icon-542,.sprite-icon-0542{
 background-position:-1344px -1120px
 }
-.sprite-icon-537,.sprite-icon-0537{
+.sprite-icon-543,.sprite-icon-0543{
 background-position:-1400px -1120px
 }
-.sprite-icon-538,.sprite-icon-0538{
+.sprite-icon-544,.sprite-icon-0544{
 background-position:-1456px -1120px
 }
-.sprite-icon-539,.sprite-icon-0539{
+.sprite-icon-545,.sprite-icon-0545{
 background-position:-1512px -1120px
 }
-.sprite-icon-540,.sprite-icon-0540{
+.sprite-icon-546,.sprite-icon-0546{
 background-position:-1568px -1120px
 }
-.sprite-icon-541,.sprite-icon-0541{
+.sprite-icon-547,.sprite-icon-0547{
 background-position:-1624px -1120px
 }
-.sprite-icon-542,.sprite-icon-0542{
+.sprite-icon-548,.sprite-icon-0548{
 background-position:-1680px -1120px
 }
-.sprite-icon-543,.sprite-icon-0543{
+.sprite-icon-549,.sprite-icon-0549{
 background-position:-1736px -1120px
 }
-.sprite-icon-544,.sprite-icon-0544{
+.sprite-icon-549H,.sprite-icon-0549H{
 background-position:-1792px -1120px
 }
-.sprite-icon-545,.sprite-icon-0545{
+.sprite-icon-550,.sprite-icon-0550{
 background-position:-1848px -1120px
 }
-.sprite-icon-546,.sprite-icon-0546{
+.sprite-icon-550B,.sprite-icon-0550B{
 background-position:-1904px -1120px
 }
-.sprite-icon-547,.sprite-icon-0547{
+.sprite-icon-550W,.sprite-icon-0550W{
 background-position:-1960px -1120px
 }
-.sprite-icon-548,.sprite-icon-0548{
+.sprite-icon-551,.sprite-icon-0551{
 background-position:-2016px -1120px
 }
-.sprite-icon-549,.sprite-icon-0549{
+.sprite-icon-552,.sprite-icon-0552{
 background-position:-2072px -1120px
 }
-.sprite-icon-549H,.sprite-icon-0549H{
+.sprite-icon-553,.sprite-icon-0553{
 background-position:-2128px -1120px
 }
-.sprite-icon-549HL,.sprite-icon-0549HL{
+.sprite-icon-554,.sprite-icon-0554{
 background-position:-2184px -1120px
 }
-.sprite-icon-550,.sprite-icon-0550{
+.sprite-icon-554G,.sprite-icon-0554G{
 background-position:0px -1176px
 }
-.sprite-icon-550B,.sprite-icon-0550B{
+.sprite-icon-555,.sprite-icon-0555{
 background-position:-56px -1176px
 }
-.sprite-icon-550W,.sprite-icon-0550W{
+.sprite-icon-555Z,.sprite-icon-0555Z{
 background-position:-112px -1176px
 }
-.sprite-icon-551,.sprite-icon-0551{
+.sprite-icon-555G,.sprite-icon-0555G{
 background-position:-168px -1176px
 }
-.sprite-icon-552,.sprite-icon-0552{
+.sprite-icon-555GZ,.sprite-icon-0555GZ{
 background-position:-224px -1176px
 }
-.sprite-icon-553,.sprite-icon-0553{
+.sprite-icon-556,.sprite-icon-0556{
 background-position:-280px -1176px
 }
-.sprite-icon-554,.sprite-icon-0554{
+.sprite-icon-557,.sprite-icon-0557{
 background-position:-336px -1176px
 }
-.sprite-icon-554G,.sprite-icon-0554G{
+.sprite-icon-558,.sprite-icon-0558{
 background-position:-392px -1176px
 }
-.sprite-icon-555,.sprite-icon-0555{
+.sprite-icon-559,.sprite-icon-0559{
 background-position:-448px -1176px
 }
-.sprite-icon-555Z,.sprite-icon-0555Z{
+.sprite-icon-560,.sprite-icon-0560{
 background-position:-504px -1176px
 }
-.sprite-icon-555G,.sprite-icon-0555G{
+.sprite-icon-561,.sprite-icon-0561{
 background-position:-560px -1176px
 }
-.sprite-icon-555GZ,.sprite-icon-0555GZ{
+.sprite-icon-562,.sprite-icon-0562{
 background-position:-616px -1176px
 }
-.sprite-icon-556,.sprite-icon-0556{
+.sprite-icon-562G,.sprite-icon-0562G{
 background-position:-672px -1176px
 }
-.sprite-icon-557,.sprite-icon-0557{
+.sprite-icon-563,.sprite-icon-0563{
 background-position:-728px -1176px
 }
-.sprite-icon-558,.sprite-icon-0558{
+.sprite-icon-564,.sprite-icon-0564{
 background-position:-784px -1176px
 }
-.sprite-icon-559,.sprite-icon-0559{
+.sprite-icon-565,.sprite-icon-0565{
 background-position:-840px -1176px
 }
-.sprite-icon-560,.sprite-icon-0560{
+.sprite-icon-566,.sprite-icon-0566{
 background-position:-896px -1176px
 }
-.sprite-icon-561,.sprite-icon-0561{
+.sprite-icon-567,.sprite-icon-0567{
 background-position:-952px -1176px
 }
-.sprite-icon-562,.sprite-icon-0562{
+.sprite-icon-568,.sprite-icon-0568{
 background-position:-1008px -1176px
 }
-.sprite-icon-562G,.sprite-icon-0562G{
-background-position:-1064px -1176px
-}
-.sprite-icon-563,.sprite-icon-0563{
+.sprite-icon-569,.sprite-icon-0569{
 background-position:-1120px -1176px
 }
-.sprite-icon-564,.sprite-icon-0564{
-background-position:-1176px -1176px
-}
-.sprite-icon-565,.sprite-icon-0565{
-background-position:-1232px -1176px
-}
-.sprite-icon-566,.sprite-icon-0566{
-background-position:-1288px -1176px
-}
-.sprite-icon-567,.sprite-icon-0567{
-background-position:-1344px -1176px
-}
-.sprite-icon-568,.sprite-icon-0568{
-background-position:-1400px -1176px
-}
-.sprite-icon-569,.sprite-icon-0569{
-background-position:-1456px -1176px
-}
 .sprite-icon-569GM,.sprite-icon-0569GM{
-background-position:-1512px -1176px
+  background-position:-1064px -1176px
 }
 .sprite-icon-570,.sprite-icon-0570{
-background-position:-1568px -1176px
+background-position:-1176px -1176px
 }
 .sprite-icon-570H,.sprite-icon-0570H{
-background-position:-1624px -1176px
+background-position:-1232px -1176px
 }
 .sprite-icon-571,.sprite-icon-0571{
-background-position:-1680px -1176px
+background-position:-1288px -1176px
 }
 .sprite-icon-571H,.sprite-icon-0571H{
-background-position:-1736px -1176px
+background-position:-1344px -1176px
 }
 .sprite-icon-572,.sprite-icon-0572{
-background-position:-1792px -1176px
+background-position:-1400px -1176px
 }
 .sprite-icon-573,.sprite-icon-0573{
-background-position:-1848px -1176px
+background-position:-1456px -1176px
 }
 .sprite-icon-574,.sprite-icon-0574{
-background-position:-1904px -1176px
+background-position:-1512px -1176px
 }
 .sprite-icon-575,.sprite-icon-0575{
-background-position:-1960px -1176px
+background-position:-1568px -1176px
 }
 .sprite-icon-576,.sprite-icon-0576{
-background-position:-2016px -1176px
+background-position:-1624px -1176px
 }
 .sprite-icon-577,.sprite-icon-0577{
-background-position:-2072px -1176px
+background-position:-1680px -1176px
 }
 .sprite-icon-578,.sprite-icon-0578{
-background-position:-2128px -1176px
+background-position:-1736px -1176px
 }
 .sprite-icon-579,.sprite-icon-0579{
-background-position:-2184px -1176px
+background-position:-1792px -1176px
 }
 .sprite-icon-580,.sprite-icon-0580{
-background-position:0px -1232px
+background-position:-1848px -1176px
 }
 .sprite-icon-581,.sprite-icon-0581{
-background-position:-56px -1232px
+background-position:-1904px -1176px
 }
 .sprite-icon-582,.sprite-icon-0582{
-background-position:-112px -1232px
+background-position:-1960px -1176px
 }
 .sprite-icon-583,.sprite-icon-0583{
-background-position:-168px -1232px
+background-position:-2016px -1176px
 }
 .sprite-icon-584,.sprite-icon-0584{
-background-position:-224px -1232px
+background-position:-2072px -1176px
 }
 .sprite-icon-585,.sprite-icon-0585{
-background-position:-280px -1232px
+background-position:-2128px -1176px
 }
 .sprite-icon-585S,.sprite-icon-0585S{
-background-position:-336px -1232px
+background-position:-2184px -1176px
 }
 .sprite-icon-585A,.sprite-icon-0585A{
-background-position:-392px -1232px
+background-position:0px -1232px
 }
 .sprite-icon-585W,.sprite-icon-0585W{
-background-position:-448px -1232px
+background-position:-56px -1232px
 }
 .sprite-icon-586,.sprite-icon-0586{
-background-position:-504px -1232px
+background-position:-112px -1232px
 }
 .sprite-icon-586S,.sprite-icon-0586S{
-background-position:-560px -1232px
+background-position:-168px -1232px
 }
 .sprite-icon-586A,.sprite-icon-0586A{
-background-position:-616px -1232px
+background-position:-224px -1232px
 }
 .sprite-icon-586W,.sprite-icon-0586W{
-background-position:-672px -1232px
+background-position:-280px -1232px
 }
 .sprite-icon-587,.sprite-icon-0587{
-background-position:-728px -1232px
+background-position:-336px -1232px
 }
 .sprite-icon-588,.sprite-icon-0588{
-background-position:-784px -1232px
+background-position:-392px -1232px
 }
 .sprite-icon-589,.sprite-icon-0589{
-background-position:-840px -1232px
+background-position:-448px -1232px
 }
 .sprite-icon-590,.sprite-icon-0590{
-background-position:-896px -1232px
+background-position:-504px -1232px
 }
 .sprite-icon-591,.sprite-icon-0591{
-background-position:-952px -1232px
+background-position:-560px -1232px
 }
 .sprite-icon-592,.sprite-icon-0592{
-background-position:-1008px -1232px
+background-position:-616px -1232px
 }
 .sprite-icon-592F,.sprite-icon-0592F{
-background-position:-1064px -1232px
+background-position:-672px -1232px
 }
 .sprite-icon-593,.sprite-icon-0593{
-background-position:-1120px -1232px
+background-position:-728px -1232px
 }
 .sprite-icon-593F,.sprite-icon-0593F{
-background-position:-1176px -1232px
+background-position:-784px -1232px
 }
 .sprite-icon-594,.sprite-icon-0594{
-background-position:-1232px -1232px
+background-position:-840px -1232px
 }
 .sprite-icon-595,.sprite-icon-0595{
-background-position:-1288px -1232px
+background-position:-896px -1232px
 }
 .sprite-icon-596,.sprite-icon-0596{
-background-position:-1344px -1232px
+background-position:-952px -1232px
 }
 .sprite-icon-597,.sprite-icon-0597{
-background-position:-1400px -1232px
+background-position:-1008px -1232px
 }
 .sprite-icon-598,.sprite-icon-0598{
-background-position:-1456px -1232px
+background-position:-1064px -1232px
 }
 .sprite-icon-599,.sprite-icon-0599{
-background-position:-1512px -1232px
+background-position:-1120px -1232px
 }
 .sprite-icon-600,.sprite-icon-0600{
-background-position:-1568px -1232px
+background-position:-1176px -1232px
 }
 .sprite-icon-601,.sprite-icon-0601{
-background-position:-1624px -1232px
+background-position:-1232px -1232px
 }
 .sprite-icon-602,.sprite-icon-0602{
-background-position:-1680px -1232px
+background-position:-1288px -1232px
 }
 .sprite-icon-603,.sprite-icon-0603{
-background-position:-1736px -1232px
+background-position:-1344px -1232px
 }
 .sprite-icon-604,.sprite-icon-0604{
-background-position:-1792px -1232px
+background-position:-1400px -1232px
 }
 .sprite-icon-605,.sprite-icon-0605{
-background-position:-1848px -1232px
+background-position:-1456px -1232px
 }
 .sprite-icon-606,.sprite-icon-0606{
-background-position:-1904px -1232px
+background-position:-1512px -1232px
 }
 .sprite-icon-607,.sprite-icon-0607{
-background-position:-1960px -1232px
+background-position:-1568px -1232px
 }
 .sprite-icon-608,.sprite-icon-0608{
-background-position:-2016px -1232px
+background-position:-1624px -1232px
 }
 .sprite-icon-609,.sprite-icon-0609{
-background-position:-2072px -1232px
+background-position:-1680px -1232px
 }
 .sprite-icon-610,.sprite-icon-0610{
-background-position:-2128px -1232px
+background-position:-1736px -1232px
 }
 .sprite-icon-611,.sprite-icon-0611{
-background-position:-2184px -1232px
+background-position:-1792px -1232px
 }
 .sprite-icon-612,.sprite-icon-0612{
-background-position:0px -1288px
+background-position:-1848px -1232px
 }
 .sprite-icon-613,.sprite-icon-0613{
-background-position:-56px -1288px
+background-position:-1904px -1232px
 }
 .sprite-icon-614,.sprite-icon-0614{
-background-position:-112px -1288px
+background-position:-1960px -1232px
 }
 .sprite-icon-615,.sprite-icon-0615{
-background-position:-168px -1288px
+background-position:-2016px -1232px
 }
 .sprite-icon-616,.sprite-icon-0616{
-background-position:-224px -1288px
+background-position:-2072px -1232px
 }
 .sprite-icon-617,.sprite-icon-0617{
-background-position:-280px -1288px
+background-position:-2128px -1232px
 }
 .sprite-icon-618,.sprite-icon-0618{
-background-position:-336px -1288px
+background-position:-2184px -1232px
 }
 .sprite-icon-618G,.sprite-icon-0618G{
-background-position:-392px -1288px
+background-position:0px -1288px
 }
 .sprite-icon-619,.sprite-icon-0619{
-background-position:-448px -1288px
+background-position:-56px -1288px
 }
 .sprite-icon-620,.sprite-icon-0620{
-background-position:-504px -1288px
+background-position:-112px -1288px
 }
 .sprite-icon-621,.sprite-icon-0621{
-background-position:-560px -1288px
+background-position:-168px -1288px
 }
 .sprite-icon-622,.sprite-icon-0622{
-background-position:-616px -1288px
+background-position:-224px -1288px
 }
 .sprite-icon-623,.sprite-icon-0623{
-background-position:-672px -1288px
+background-position:-280px -1288px
 }
 .sprite-icon-624,.sprite-icon-0624{
-background-position:-728px -1288px
+background-position:-336px -1288px
 }
 .sprite-icon-625,.sprite-icon-0625{
-background-position:-784px -1288px
+background-position:-392px -1288px
 }
 .sprite-icon-626,.sprite-icon-0626{
-background-position:-840px -1288px
+background-position:-448px -1288px
 }
 .sprite-icon-627,.sprite-icon-0627{
-background-position:-896px -1288px
+background-position:-504px -1288px
 }
 .sprite-icon-628,.sprite-icon-0628{
-background-position:-952px -1288px
+background-position:-560px -1288px
 }
 .sprite-icon-628H,.sprite-icon-0628H{
-background-position:-1008px -1288px
+background-position:-616px -1288px
 }
 .sprite-icon-629,.sprite-icon-0629{
-background-position:-1064px -1288px
+background-position:-672px -1288px
 }
 .sprite-icon-630,.sprite-icon-0630{
-background-position:-1120px -1288px
+background-position:-728px -1288px
 }
 .sprite-icon-631,.sprite-icon-0631{
-background-position:-1176px -1288px
+background-position:-784px -1288px
 }
 .sprite-icon-632,.sprite-icon-0632{
-background-position:-1232px -1288px
+background-position:-840px -1288px
 }
 .sprite-icon-633,.sprite-icon-0633{
-background-position:-1288px -1288px
+background-position:-896px -1288px
 }
 .sprite-icon-634,.sprite-icon-0634{
-background-position:-1344px -1288px
+background-position:-952px -1288px
 }
 .sprite-icon-635,.sprite-icon-0635{
-background-position:-1400px -1288px
+background-position:-1008px -1288px
 }
 .sprite-icon-636,.sprite-icon-0636{
-background-position:-1456px -1288px
+background-position:-1064px -1288px
 }
 .sprite-icon-637,.sprite-icon-0637{
-background-position:-1512px -1288px
+background-position:-1120px -1288px
 }
 .sprite-icon-638,.sprite-icon-0638{
-background-position:-1568px -1288px
+background-position:-1176px -1288px
 }
 .sprite-icon-639,.sprite-icon-0639{
-background-position:-1624px -1288px
+background-position:-1232px -1288px
 }
 .sprite-icon-640,.sprite-icon-0640{
-background-position:-1680px -1288px
+background-position:-1288px -1288px
 }
 .sprite-icon-641,.sprite-icon-0641{
-background-position:-1736px -1288px
+background-position:-1344px -1288px
 }
 .sprite-icon-641T,.sprite-icon-0641T{
-background-position:-1792px -1288px
+background-position:-1400px -1288px
 }
 .sprite-icon-642,.sprite-icon-0642{
-background-position:-1848px -1288px
+background-position:-1456px -1288px
 }
 .sprite-icon-642T,.sprite-icon-0642T{
-background-position:-1904px -1288px
+background-position:-1512px -1288px
 }
 .sprite-icon-643,.sprite-icon-0643{
-background-position:-1960px -1288px
+background-position:-1568px -1288px
 }
 .sprite-icon-644,.sprite-icon-0644{
-background-position:-2016px -1288px
+background-position:-1624px -1288px
 }
 .sprite-icon-645,.sprite-icon-0645{
-background-position:-2072px -1288px
+background-position:-1680px -1288px
 }
 .sprite-icon-645T,.sprite-icon-0645T{
-background-position:-2128px -1288px
+background-position:-1736px -1288px
 }
 .sprite-icon-646,.sprite-icon-0646{
-background-position:-2184px -1288px
+background-position:-1792px -1288px
 }
 .sprite-icon-646W,.sprite-icon-0646W{
-background-position:0px -1344px
+background-position:-1848px -1288px
 }
 .sprite-icon-646B,.sprite-icon-0646B{
-background-position:-56px -1344px
+background-position:-1904px -1288px
 }
 .sprite-icon-647,.sprite-icon-0647{
-background-position:-112px -1344px
+background-position:-1960px -1288px
 }
 .sprite-icon-647R,.sprite-icon-0647R{
-background-position:-168px -1344px
+background-position:-2016px -1288px
 }
 .sprite-icon-648,.sprite-icon-0648{
-background-position:-224px -1344px
+background-position:-2072px -1288px
 }
 .sprite-icon-648P,.sprite-icon-0648P{
-background-position:-280px -1344px
+background-position:-2128px -1288px
 }
 .sprite-icon-649,.sprite-icon-0649{
-background-position:-336px -1344px
+background-position:-2184px -1288px
 }
 .sprite-icon-649S,.sprite-icon-0649S{
-background-position:-392px -1344px
+background-position:0px -1344px
 }
 .sprite-icon-649B,.sprite-icon-0649B{
-background-position:-448px -1344px
+background-position:-56px -1344px
 }
 .sprite-icon-649C,.sprite-icon-0649C{
-background-position:-504px -1344px
+background-position:-112px -1344px
 }
 .sprite-icon-649D,.sprite-icon-0649D{
-background-position:-560px -1344px
+background-position:-168px -1344px
 }
 .sprite-icon-650,.sprite-icon-0650{
-background-position:-616px -1344px
+background-position:-224px -1344px
 }
 .sprite-icon-651,.sprite-icon-0651{
-background-position:-672px -1344px
+background-position:-280px -1344px
 }
 .sprite-icon-652,.sprite-icon-0652{
-background-position:-728px -1344px
+background-position:-336px -1344px
 }
 .sprite-icon-653,.sprite-icon-0653{
-background-position:-784px -1344px
+background-position:-392px -1344px
 }
 .sprite-icon-654,.sprite-icon-0654{
+background-position:-448px -1344px
+}
+.sprite-icon-655,.sprite-icon-0655{
+background-position:-504px -1344px
+}
+.sprite-icon-656,.sprite-icon-0656{
+background-position:-560px -1344px
+}
+.sprite-icon-657,.sprite-icon-0657{
+background-position:-616px -1344px
+}
+.sprite-icon-658,.sprite-icon-0658{
+background-position:-672px -1344px
+}
+.sprite-icon-658A,.sprite-icon-0658A{
+background-position:-728px -1344px
+}
+.sprite-icon-659,.sprite-icon-0659{
+background-position:-784px -1344px
+}
+.sprite-icon-660,.sprite-icon-0660{
 background-position:-840px -1344px
 }
 .sprite-icon-655,.sprite-icon-0655{

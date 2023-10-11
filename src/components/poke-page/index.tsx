@@ -9,7 +9,7 @@ import './sprite.css';
 
 const formatNum = (n: number) => n.toString().padStart(3,'0');
 
-// m=超进化, mx=megaX, my=megaY, gm=极巨化, f=雌性形态, g=嘉乐儿, h=洗翠
+// M=超进化, MX=megaX, MY=megaY, GM=极巨化, F=雌性形态, A=阿罗拉, G=嘉乐儿, H=洗翠
 
 type IPokePageProps = {
   data: Pokemon[];
