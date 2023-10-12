@@ -5,7 +5,7 @@ import PmType from '../pm-type';
 import styles from './index.module.css';
 import { useNavigate } from 'react-router';
 import i18n from '@/utils/i18n';
-import './sprite.css';
+import Avatar from './avatar';
 
 const formatNum = (n: number) => n.toString().padStart(3,'0');
 
@@ -27,7 +27,7 @@ const PokePage:FC<IPokePageProps> = (props) => {
         <List.Item key={index} onClick={() => navigate(`/poke-index/${item.national_num}`)} arrow={false}>
           <div className={styles.wrapper}>
             <div className={styles.prefix}>
-              <span className={`sprite-icon sprite-icon-${formatNum(item.national_num)}`}></span>
+              <Avatar value={item.national_num}></Avatar>
             </div>
             <div className={styles.content}>
               <div className={styles.chName}>{i18n.transfer(item)}</div>

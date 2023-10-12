@@ -21,7 +21,7 @@ const PmAbility: FC<IPmAbilityProps> = (props) => {
       <div onClick={() => navigate(`/tools/ability/${data.en_name}`)}>
         <span>{i18n.transfer(data)}</span>
         {hidden ?
-          <span style={{fontSize: '8px', color: '#aaa'}}>({i18n.transfer('hidden-ability')})</span> :
+          <span style={{fontSize: '8px', color: '#aaa'}}> ({i18n.transfer('hidden-ability')})</span> :
         null}
       </div>
       <div style={{fontSize: '8px', color: '#aaa'}}>{i18n.transfer(desc)}</div>

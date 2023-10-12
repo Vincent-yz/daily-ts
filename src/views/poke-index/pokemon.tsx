@@ -9,6 +9,7 @@ import Gender from './components/gender';
 import TypeDefense from './components/type-defense';
 import Block from '@/components/block';
 import { Grid } from 'antd-mobile';
+import Avatar from '@/components/poke-page/avatar';
 
 type IStatBarProps = {
   title: string;
@@ -34,11 +35,16 @@ const Pokemon: FC = () => {
   const { setPageTitle } = useLayoutContext();
   useEffect(() => setPageTitle(data), [data, setPageTitle]);
 
-  if (!data) return null;
+  if (!nationalNum || !data) return null;
 
   return (
     <div>
       <Block>
+        <div className="aaa">
+          <Avatar value={nationalNum} />
+          <Avatar value={nationalNum} type="F" />
+          <Avatar value={nationalNum} shiny />
+        </div>
         <div>
           <span>{data.ch_name}</span> |
           <span>{data.en_name}</span> |
