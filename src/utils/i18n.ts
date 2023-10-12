@@ -28,6 +28,10 @@ class Internationalization {
 		return this.current;
 	}
 
+	public isCh(): boolean {
+		return this.current === LOCATE.ch;
+	}
+
 	public set(locate: LOCATE) {
 		this.current = locate;
 	}

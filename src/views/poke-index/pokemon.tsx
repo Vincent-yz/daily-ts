@@ -10,7 +10,24 @@ import TypeDefense from './components/type-defense';
 import Block from '@/components/block';
 import { Grid } from 'antd-mobile';
 
-const PokeIndex: FC = () => {
+type IStatBarProps = {
+  title: string;
+  value: number;
+}
+
+const StatBar: FC<IStatBarProps> = (props) => {
+  const { title, value } = props;
+  return (
+    <Grid columns={400}>
+      <Grid.Item span={100}>{title}</Grid.Item>
+      <Grid.Item span={30}>{value}</Grid.Item>
+      <Grid.Item span={value} style={{margin: '1px 0', background: '#aaa'}}></Grid.Item>
+      <Grid.Item span={255-value} style={{margin: '1px 0', background: '#eee'}}></Grid.Item>
+    </Grid>
+  )
+}
+
+const Pokemon: FC = () => {
   const { nationalNum } = useParams();
   const navigate = useNavigate();
   const { data } = usePmDetail(nationalNum);
@@ -23,7 +40,7 @@ const PokeIndex: FC = () => {
     <div>
       <Block>
         <div>
-          <span>{i18n.transfer(data)}</span> |
+          <span>{data.ch_name}</span> |
           <span>{data.en_name}</span> |
           <span>No.{data.national_num.toString().padStart(3,'0')}</span>
         </div>
@@ -67,19 +84,13 @@ const PokeIndex: FC = () => {
       </Block>
 
       <Block title={i18n.transfer("base stats")}>
+        <StatBar title="hp" value={data.base_stats.hp}></StatBar>
+        <StatBar title="attack" value={data.base_stats.attack}></StatBar>
+        <StatBar title="defense" value={data.base_stats.defense}></StatBar>
+        <StatBar title="sp_attack" value={data.base_stats.sp_attack}></StatBar>
+        <StatBar title="sp_defense" value={data.base_stats.sp_defense}></StatBar>
+        <StatBar title="speed" value={data.base_stats.speed}></StatBar>
         <Grid columns={4}>
-          <Grid.Item span={1}>hp</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.hp}</Grid.Item>
-          <Grid.Item span={1}>attack</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.attack}</Grid.Item>
-          <Grid.Item span={1}>defense</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.defense}</Grid.Item>
-          <Grid.Item span={1}>sp_attack</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.sp_attack}</Grid.Item>
-          <Grid.Item span={1}>sp_defense</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.sp_defense}</Grid.Item>
-          <Grid.Item span={1}>speed</Grid.Item>
-          <Grid.Item span={3}>{data.base_stats.speed}</Grid.Item>
           <Grid.Item span={1}>total</Grid.Item>
           <Grid.Item span={3}>{data.total_stats}</Grid.Item>
         </Grid>
@@ -98,4 +109,4 @@ const PokeIndex: FC = () => {
   );
 }
 
-export default PokeIndex;
+export default Pokemon;

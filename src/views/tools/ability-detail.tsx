@@ -25,10 +25,17 @@ const AbilityDetail: FC = () => {
 
   if (!ability || !pmList) return null;
 
+  const desc: string[] = ability.effect.split('\n\n');
+
   return (
     <div>
-      <div>{i18n.transfer(ability)}</div>
-      <div>{ability.effect}</div>
+      <div style={{padding: '4px 8px'}}>{i18n.transfer(ability)}</div>
+      {i18n.isCh() ?
+        <div style={{padding: '4px 8px'}}>{ability.flavor}</div> :
+      null}
+      {desc.map((d, index) =>
+        <div key={index} style={{padding: '4px 8px'}}>{d}</div>
+      )}
 
       <div>
         {pmList.map((page, index) =>
