@@ -7,6 +7,7 @@ type ITrainer = {
   en_name: string;
 	ch_name: string;
 	next: string;
+	last: 0 | 1;
 }
 
 type IUseTrainer = {
