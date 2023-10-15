@@ -8,21 +8,21 @@ type PlayerEditorPorps = {
 	trainerId?: string;
 	target?: IPlayer;
 	onClose: () => void;
+	onConfirm: (p: IPlayer) => void;
 }
 
 const PlayerEditor: FC<PlayerEditorPorps> = (props) => {
-	const { visible, trainerId, target, onClose } = props;
+	const { visible, trainerId, target, onClose, onConfirm } = props;
 	const formRef = createRef<FormInstance>();
 	const onFinish = async () => {
 		const playerForm: IPlayer = {
 			...target,
 			...formRef.current?.getFieldsValue(),
 		}
-		console.log(playerForm);
 
 		await putPlayer(trainerId, playerForm);
 		Toast.show('保存成功');
-		onClose();
+		onConfirm(playerForm);
 	}
 
 	useEffect(() => {
