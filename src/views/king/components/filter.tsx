@@ -78,6 +78,7 @@ const Filter: FC<IFilterProps> = (props) => {
 					<List.Item key={player.national_num}>
 						<div className={styles.row}>
 							<span className={styles.num}>{player.count}</span>
+							<span className={styles.number}>No.{player.national_num.toString().padStart(3, '0')}</span>
 							<span className={styles.name}>{player.name}</span>
 							{
 								condition.findIndex(_c => _c.national_num === player.national_num) > -1 ?
