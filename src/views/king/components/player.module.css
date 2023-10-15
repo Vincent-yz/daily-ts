@@ -8,6 +8,16 @@
 	border-radius: 2px;
 	position: relative;
 }
+.sturdy {
+	position: absolute;
+	right: 50px;
+	top: -6px;
+}
+.lock {
+	position: absolute;
+	right: 30px;
+	top: -6px;
+}
 .edit {
 	position: absolute;
 	right: 0;
