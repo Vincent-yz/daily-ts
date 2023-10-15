@@ -28,8 +28,23 @@ const Team: FC<ITeamProps> = (props) => {
 
   const editPlayer = (player: IPlayer) => {
     const target: IPlayer = {...player, moves: [...player.moves]};
-    setDialogVisible(true);
     setSelected(target);
+    setDialogVisible(true);
+  }
+
+  const onConfirm = (player: IPlayer) => {
+    let flag: boolean = true;
+    filterTeam.forEach(t => {
+      if (flag) {
+        t.players.forEach((p, i) => {
+          if (flag && p.id === player.id) {
+            t.players[i] = player;
+            flag = false;
+          }
+        });
+      }
+    });
+    setDialogVisible(false);
   }
 
   return (
@@ -52,6 +67,7 @@ const Team: FC<ITeamProps> = (props) => {
         trainerId={trainerId}
         target={selected}
         onClose={() => setDialogVisible(false)}
+        onConfirm={onConfirm}
       />
     </div>
   )
